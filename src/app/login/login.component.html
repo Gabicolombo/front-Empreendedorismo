@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="card form-group col-md-4 align-center" style="top: 8rem">
+      <div class="card-body">
+        <div class="row">
+          <h4 class="card-title">Fazer Login</h4>
+        </div>
+        <form class="row g-3 align-items-center">
+          <div class="col-md-12">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" required placeholder="empreendedorismo@gmail.com">
+          </div>
+          <div class="col-md-12">
+            <label for="Senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="Senha" required placeholder="Digite sua senha">
+          </div>
+
+          <div class="col-md-12">
+            <button class="btn btn-primary" type="submit">Fazer login</button>
+          </div>
+          <p> Ainda não tem uma conta?
+              <a [routerLink]="['/Cadastro']">Cadastre-se</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
