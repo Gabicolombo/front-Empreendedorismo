@@ -12,12 +12,16 @@ import { LoginComponent } from './login/login.component';
 import { routerConfig } from './app.routes';
 import { CadastroComponent } from './cadastro/cadastro.component';
 
+import { UserService } from './services/user';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     NgbModule,
     [RouterModule.forRoot(routerConfig, {useHash: false})]
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

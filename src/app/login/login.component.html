@@ -5,21 +5,31 @@
         <div class="row">
           <h4 class="card-title">Fazer Login</h4>
         </div>
-        <form class="row g-3 align-items-center">
+        <form class="row g-3 align-items-center" [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="col-md-12">
-            <label for="Email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="Email" required placeholder="empreendedorismo@gmail.com">
+            <label for="Email" class="form-label"><b>Email</b></label>
+            <input type="email" class="form-control" id="Email" required placeholder="empreendedorismo@gmail.com" formControlName="email">
           </div>
           <div class="col-md-12">
-            <label for="Senha" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="Senha" required placeholder="Digite sua senha">
+            <label for="Senha" class="form-label"><b>Senha</b></label>
+            <input type="password" class="form-control" id="Senha" required placeholder="Digite sua senha" formControlName="senha">
+            <div *ngIf="errorMessage" class="text-danger">
+              <c-alert color="danger" class="d-flex align-items-center">
+                <!-- <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+
+                </svg> -->
+                <i class='fas fa-exclamation-triangle' style='font-size:48px;color:red'></i>
+                <b>{{errorMessage}}</b>
+            </c-alert>
+            </div>
           </div>
 
           <div class="col-md-12">
             <button class="btn btn-primary" type="submit">Fazer login</button>
           </div>
           <p> Ainda não tem uma conta?
-              <a [routerLink]="['/Cadastro']">Cadastre-se</a>
+              <a [routerLink]="['/Cadastro']"><b>Cadastre-se</b></a>
           </p>
         </form>
       </div>
