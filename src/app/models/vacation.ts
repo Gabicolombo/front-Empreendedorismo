@@ -4,6 +4,8 @@ export class Vacation{
   nome: string;
   origem: string;
   destino: string;
+  dataInicio: string;
+  dataFim: string;
   transportes: Array<{tipo: string, descricao: string,
     horario: string, caminho: string}>;
   proprietario: User;
@@ -23,4 +25,6 @@ export class Vacation{
     local: string,
     descricao: string
   }>;
+  total_disponivel: Number;
+  gasto_total: Number;
 }
