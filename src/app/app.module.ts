@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatNativeDateModule} from '@angular/material/core';
 
+import {MaterialExampleModule} from '../material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -33,7 +36,11 @@ import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cad
     HttpClientModule,
     RouterModule,
     NgbModule,
-    [RouterModule.forRoot(routerConfig, {useHash: false})]
+    MatNativeDateModule,
+    MaterialExampleModule,
+    [RouterModule.forRoot(routerConfig, {useHash: false}),
+    BrowserAnimationsModule,
+  ]
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

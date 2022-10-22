@@ -1,6 +1,6 @@
 import { User } from "./user";
 
-export class Vacation{
+export class Travel{
   nome: string;
   origem: string;
   destino: string;
