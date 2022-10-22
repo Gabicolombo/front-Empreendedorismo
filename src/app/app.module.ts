@@ -19,14 +19,23 @@ import { UserService } from './services/user';
 import { HomeComponent } from './home/home.component';
 import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cadastro-page1.component';
 
+import {
+  NgxMatDateFormats,
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule,
+  NGX_MAT_DATE_FORMATS
+} from '@angular-material-components/datetime-picker';
+
 @NgModule({
+  
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    ViagemCadastroPage1Component
+    ViagemCadastroPage1Component,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +48,11 @@ import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cad
     MatNativeDateModule,
     MaterialExampleModule,
     [RouterModule.forRoot(routerConfig, {useHash: false}),
-    BrowserAnimationsModule,
-  ]
+    BrowserAnimationsModule
+  ],
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<form class="d-flex flex-column align-items-center" style="background-color: #ffff; height: 100vh;">
+<form class="d-flex flex-column align-items-center" style="background-color: #ffff; height: 100vh;"  [formGroup]="travelForm" (ngSubmit)="createTravel()"> 
 
     <!-- Título -->
     <div class="mt-5">
@@ -72,8 +72,11 @@
                             <div class="d-flex flex-row">
                             
                                 <!--Date Picking-->
-                                <mat-form-field class="me-2">
-                                    <input matInput type="datetime-local" placeholder="Data Ida">
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                    <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
                                 </mat-form-field>
                                 
                                 <div class="form-floating mb-2">
@@ -89,7 +92,7 @@
                         <div>
                             <div class="form-floating mb-2">
                                 <select class="form-select">
-                                    <option>Avião</option>
+                                    <option id="">Avião</option>
                                     <option>Carro</option>
                                     <option>Trem</option>
                                     <option>Ônibus</option>
@@ -97,11 +100,6 @@
                                 <label class="form-label">Status Passagem</label>
                             </div>
                             <div class="d-flex flex-row">
-
-                                <!--Date Picking-->
-                                <mat-form-field class="me-2">
-                                    <input matInput type="datetime-local" placeholder="Data Check-In">
-                                </mat-form-field>        
 
                                 <div class="form-floating mb-2">
                                     <select class="form-select">
@@ -141,25 +139,16 @@
                     </div>
                     
                     <div class="form-floating mb-2 full">
-                        <input class="form-control" id="nome-estadia" required placeholder="Nome" formControlName="nomeEstadia"/>
+                        <input class="form-control" id="nome-estadia" required placeholder="Nome" formControlName="nome_estadia"/>
                         <label class="form-label">Nome</label>
                     </div>
 
                     <div class="form-floating mb-2 full">
-                        <input class="form-control" id="endereco-estadia" required placeholder="Endereço" formControlName="enderecoEstadia"/>
+                        <input class="form-control" id="endereco-estadia" required placeholder="Endereço" formControlName="endereco_estadia"/>
                         <label class="form-label">Endereço</label>
                     </div>
 
                     <div class="d-flex flex-row justify-content-center mb-2 full">
-                        <!--Date Picking-->
-                        <mat-form-field class="me-2 full">
-                            <input matInput type="datetime-local" placeholder="Data Check-In">
-                        </mat-form-field> 
-
-                        <!--Date Picking-->
-                        <mat-form-field class="me-2 full">
-                            <input matInput type="datetime-local" placeholder="Data Check-Out">
-                        </mat-form-field> 
 
                         <div class="form-floating mb-2 me-2 full">
                             <select class="form-select">
@@ -191,7 +180,7 @@
                             <label class="form-label">Participante</label>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn">Add</button>
                         </div>
                     </div>
                 </div>
@@ -199,15 +188,15 @@
         </div>
     </div>
 
-    <div class="d-flex flex-row justify-content-center full mt-2">
+    <div class="d-flex flex-row justify-content-between full-3 mt-5 pb-5">
         <!-- Back Button-->
         <div class="me-5">
-            <button type="submit" class="btn btn-primary">Go Back</button>
+            <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn">Voltar</button>
         </div>
 
         <!-- Submit Button -->
         <div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn">Próximo</button>
         </div>
     </div>
 </form>

@@ -23,6 +23,17 @@
     height: 100%;
 }
 
+.full-2{
+
+  width: 50%;
+  height: 50%;
+}
+
+.full-3{
+
+  width: 33%;
+  height: 33%;
+}
 /* Add padding to the top of the body so im able to use fixed top in 
 the navbar without overlay other elements*/
 body { 
