@@ -32,7 +32,6 @@ export class UserService{
   }
 
   getUsuario(tokenUser: string) : Observable<User>{
-    console.log('getUsuario: ', tokenUser);
     //Atualizando o header da requisicao para enviar o token
     if(this.httpOptions.headers.has('Authorization'))
       this.httpOptions.headers = this.httpOptions.headers.delete('Authorization')

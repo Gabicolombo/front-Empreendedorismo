@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
-import { VacationService } from '../services/vacations.service';
+import { TravelService } from '../services/travels.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
-import { Vacation } from '../models/vacation';
+import { Travel } from '../models/travel';
 
 @Component({
   selector: 'app-home',
@@ -14,25 +14,21 @@ import { Vacation } from '../models/vacation';
 export class HomeComponent implements OnInit {
 
   token: string;
-  travels: Vacation[] = [];
+  travels: Travel[] = [];
 
-  constructor(private routes: Router, private vacationService: VacationService,
+  constructor(private routes: Router, private travelService: TravelService,
    private userService: UserService ) { }
 
   ngOnInit(): void {
-    console.log(this.userService.token);
     // verificando se o usuário está autenticado
     this.userService.token.subscribe(value => {
-      console.log(value);
       this.token = value
     });
 
-    console.log('this.token: ', this.token);
     if(this.token == '') this.routes.navigate(['/Login']);
 
-    this.vacationService.getTravels(this.token)
+    this.travelService.getTravels(this.token)
       .subscribe(res => {
-        console.log(res);
         const travels = res.data.map((data:any) => ({
           nome: data.nome,
           origem: data.origem,
@@ -42,7 +38,6 @@ export class HomeComponent implements OnInit {
         }));
 
         this.travels = travels;
-        console.log(this.travels);
       })
 
   }

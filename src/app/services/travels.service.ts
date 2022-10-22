@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Vacation } from '../models/vacation';
+import { Travel } from '../models/travel';
 
 @Injectable()
-export class VacationService{
+export class TravelService{
   private url = 'http://localhost:2828/vacation/';
 
   httpOptions = {

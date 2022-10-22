@@ -17,6 +17,7 @@ import { routerConfig } from './app.routes';
 import { CadastroComponent } from './cadastro/cadastro.component';
 
 import { UserService } from './services/user.service';
+import { TravelService } from './services/travels.service';
 import { HomeComponent } from './home/home.component';
 import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cadastro-page1.component';
 
@@ -59,7 +60,7 @@ import {
   exports:[
     MatIconModule
   ],
-  providers: [UserService, VacationService],
+  providers: [UserService, TravelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
