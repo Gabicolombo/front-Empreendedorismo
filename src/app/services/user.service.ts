@@ -31,4 +31,15 @@ export class UserService{
     this.tokenSource.next(token);
   }
 
+  getUsuario(tokenUser: string) : Observable<User>{
+    console.log('getUsuario: ', tokenUser);
+    //Atualizando o header da requisicao para enviar o token
+    if(this.httpOptions.headers.has('Authorization'))
+      this.httpOptions.headers = this.httpOptions.headers.delete('Authorization')
+    if(!this.httpOptions.headers.has('Authorization'))
+      this.httpOptions.headers = this.httpOptions.headers.append('Authorization', tokenUser)
+    //Requisicao GET que retorna os dados do usuario
+    return this.http.get<User>(this.url+"myuser", this.httpOptions)
+  }
+
 }

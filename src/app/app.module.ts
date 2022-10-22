@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
 import {MatNativeDateModule} from '@angular/material/core';
 
 import {MaterialExampleModule} from '../material.module';
@@ -15,7 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { routerConfig } from './app.routes';
 import { CadastroComponent } from './cadastro/cadastro.component';
 
-import { UserService } from './services/user';
+import { UserService } from './services/user.service';
 import { HomeComponent } from './home/home.component';
 import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cadastro-page1.component';
 
@@ -28,7 +29,7 @@ import {
 } from '@angular-material-components/datetime-picker';
 
 @NgModule({
-  
+
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -47,6 +48,7 @@ import {
     NgbModule,
     MatNativeDateModule,
     MaterialExampleModule,
+    MatIconModule,
     [RouterModule.forRoot(routerConfig, {useHash: false}),
     BrowserAnimationsModule
   ],
@@ -54,7 +56,10 @@ import {
     NgxMatNativeDateModule,
     NgxMatTimepickerModule,
   ],
-  providers: [UserService],
+  exports:[
+    MatIconModule
+  ],
+  providers: [UserService, VacationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

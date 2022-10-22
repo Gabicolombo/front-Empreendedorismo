@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular-material-components/datetime-picker": "^8.0.0",
-    "@angular/animations": "^14.2.0",
+    "@angular/animations": "^14.2.7",
     "@angular/cdk": "^14.2.5",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
@@ -25,6 +25,7 @@
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@popperjs/core": "^2.10.2",
     "angular-material-datepicker": "^1.0.2",
+    "angular-font-awesome": "^3.1.2",
     "bootstrap": "^5.2.1",
     "jquery": "^3.6.1",
     "rxjs": "~7.5.0",

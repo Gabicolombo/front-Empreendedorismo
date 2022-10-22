@@ -7,6 +7,7 @@ import { ViagemCadastroPage1Component } from "./viagem-cadastro-page1/viagem-cad
 
 
 export const routerConfig: Routes = [
+  { path: '', redirectTo: (localStorage.getItem('token') != null ? '/Home' : '/Login'), pathMatch: 'full'},
   {path: 'Login', component: LoginComponent},
   {path: 'Cadastro', component: CadastroComponent},
   {path: 'Home', component: HomeComponent},

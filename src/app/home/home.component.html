@@ -1,1 +1,39 @@
-<p>home works!</p>
+<div class="container-fluid mt-4 col-md-12">
+  <div class="row">
+    <div class="card form-group col-md-7" style="left:1rem">
+      <div class="card-body">
+        <div class="row">
+          <div class="d-inline p-2">
+            <h4 class="card-title" style="display:inline">Minhas viagens</h4>
+            <button class="btn btn-primary" type="submit"><b>+Nova viagem</b></button>
+          </div>
+          <hr>
+        </div>
+        <br>
+        <div *ngFor="let travel of travels" class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12">
+          <div class="image p-3 d-flex flex-column justify-content-center align-items-center">
+            <img class="rounded mx-auto d-block" src="assets\img\losangeles.jpg" alt="image" width="75" height="75" alt="" />
+          </div>
+          <div class="d-flex flex-column justify-content-start flex-grow-1">
+            <div class="mr-auto p-2"><b>{{ travel.nome }}</b></div>
+            <div class="mr-auto p-2"><i class="fa fa-calendar-o" style="color: #a18ecacc!important;"></i> {{travel.dataInicio}} - {{travel.dataFim}}</div>
+            <div class="mr-auto p-2"><i class="fa fa-plane" style="color: #a18ecacc!important;"></i> {{travel.origem}} - <i class="fa fa-plane" style="color: #a18ecacc!important;"></i> {{travel.destino}}</div>
+          </div>
+          <div class="d-flex flex-column">
+            <div class="mr-auto p-3">
+              <button class="btn config" style="right: 32px">
+                <img class="rounded mx-auto d-block" src="assets\img\Vector29.png" alt="image" width="27" height="8" alt="" />
+              </button>
+            </div>
+            <div class="mr-auto p-4">
+              <button class="btn btn-primary" style="right: 32px" type="submit"><b>$ Orçamento</b></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card form-group col-md-4" style="right:-5rem">
+      <div class="card-body"></div>
+    </div>
+  </div>
+</div>
