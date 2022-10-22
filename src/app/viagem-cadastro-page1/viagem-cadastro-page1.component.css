@@ -1,0 +1,42 @@
+.center {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 3px solid green;*/
+  }
+
+.right {
+  float: right;
+}
+
+/* fix vertical part of elements out of div in right alinment*/
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.full{
+
+    width: 100%;
+    height: 100%;
+}
+
+.full-2{
+
+  width: 50%;
+  height: 50%;
+}
+
+.full-3{
+
+  width: 33%;
+  height: 33%;
+}
+/* Add padding to the top of the body so im able to use fixed top in 
+the navbar without overlay other elements*/
+body { 
+  
+  padding-top: 70px; 
+}
