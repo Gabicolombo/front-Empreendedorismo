@@ -72,11 +72,15 @@
                             <div class="d-flex flex-row">
                             
                                 <!--Date Picking-->
-                                <mat-form-field>
-                                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                <mat-form-field class="me-2">
+                                    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="transporteIdaDateControl"
+                                    [min]="minDate" [max]="maxDate" [disabled]="disabled">
                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-                                    <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+                                    <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                       [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                       [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                    </ngx-mat-datetime-picker>
                                 </mat-form-field>
                                 
                                 <div class="form-floating mb-2">
@@ -90,6 +94,9 @@
                             </div>
                         </div>
                         <div>
+
+            
+
                             <div class="form-floating mb-2">
                                 <select class="form-select">
                                     <option id="">Avião</option>
@@ -100,6 +107,18 @@
                                 <label class="form-label">Status Passagem</label>
                             </div>
                             <div class="d-flex flex-row">
+
+                                <!--Date Picking-->
+                                <mat-form-field class="me-2">
+                                    <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Choose a date" formControlName="transporteVoltaDateControl"
+                                    [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <ngx-mat-datetime-picker #picker1 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                    [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                    [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                    [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                    </ngx-mat-datetime-picker>
+                                </mat-form-field>
 
                                 <div class="form-floating mb-2">
                                     <select class="form-select">
@@ -149,6 +168,30 @@
                     </div>
 
                     <div class="d-flex flex-row justify-content-center mb-2 full">
+
+                        <!--Date Picking-->
+                        <mat-form-field class="me-2">
+                            <input matInput [ngxMatDatetimePicker]="picker2" placeholder="Choose a date" formControlName="checkInDateControl"
+                            [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                            [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                            [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                            [disableMinute]="disableMinute" [hideTime]="hideTime">
+                            </ngx-mat-datetime-picker>
+                        </mat-form-field>
+
+                        <!--Date Picking-->
+                        <mat-form-field class="me-2">
+                            <input matInput [ngxMatDatetimePicker]="picker3" placeholder="Choose a date" formControlName="checkOutDateControl"
+                            [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #picker3 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                            [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                            [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                            [disableMinute]="disableMinute" [hideTime]="hideTime">
+                            </ngx-mat-datetime-picker>
+                        </mat-form-field>
 
                         <div class="form-floating mb-2 me-2 full">
                             <select class="form-select">
