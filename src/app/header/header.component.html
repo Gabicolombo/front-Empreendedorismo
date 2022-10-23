@@ -4,30 +4,40 @@
   style="background-color: #AE9CD4"
 >
   <!-- Container wrapper -->
-  <div class="container-fluid align-items-center" style="height: 40px;">
+  <div class="d-flex flex-row justify-content-between align-items-center" style="height: 40px; width:100%;">
     <!-- Navbar brand -->
-
-    <a
-      class="navbar-brand"
-      href="#"
-      style="
-        font-size: small;
-        font-weight: bold;
-      "
-    >
+    <div class="w-25">
+  
       <div class="d-flex flex-row align-items-center">
-        <div class="me-2">
-          <img src="/assets/img/logo.png" alt="image" width="35" alt="" />
+          <div class="me-2 padding: 0; margin: 0;">
+            <img src="/assets/img/logo.png" alt="image" width="35" alt="" />
+          </div>
+          <div>
+            <p style="color: #fff; margin: 0; padding: 0; font-weight: bold;"> SUA <br />
+              MOCHILA</p>
+          </div>
         </div>
-        <div>
-          <p style="color: #fff; margin: 0; padding: 0; font-weight: bold;"> SUA <br />
-            MOCHILA</p>
-        </div>
-      </div>
-    </a>
+    </div>
 
-    <!-- Toggle button -->
-    <button
+    <div class="w-25 d-flex flex-row justify-content-center">
+      <a class="navbar-brand" *ngIf="token != ''" style="color: white; font-weight: bold; padding: 0; margin: 0;" [routerLink]="['/Home']">Home</a>
+    </div>
+
+    <div class="w-25">
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse justify-content-end" id="navPrincipal">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" *ngIf="token == ''">
+            <a class="navbar-brand" style="color: white; font-weight: bold;"[routerLink]="['/Cadastro']">Cadastro</a>
+          </li>
+          <li class="nav-item" *ngIf="token == ''">
+            <a class="navbar-brand" style="color: white; font-weight: bold;"[routerLink]="['/Login']">Login</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Toggle button -->
+      <button
       class="navbar-toggler"
       type="button"
       data-mdb-toggle="collapse"
@@ -35,25 +45,10 @@
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse justify-content-end" id="navPrincipal">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item" *ngIf="token == ''">
-          <a class="navbar-brand" style="color: white; font-weight: bold;"[routerLink]="['/Cadastro']">Cadastro</a>
-        </li>
-        <li class="nav-item" *ngIf="token == ''">
-          <a class="navbar-brand" style="color: white; font-weight: bold;"[routerLink]="['/Login']">Login</a>
-        </li>
-      </ul>
+      >
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-    <div class="d-flex justify-content-center" style="width: 100%">
-      <a class="navbar-brand" *ngIf="token != ''" style="color: white; font-weight: bold;" [routerLink]="['/Home']">Home</a>
+      
     </div>
-  </div>
-  <!-- Container wrapper -->
 </nav>
-<!-- Navbar -->
