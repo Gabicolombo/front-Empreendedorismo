@@ -15,6 +15,15 @@ export class TravelService{
   constructor(private http: HttpClient) { }
 
   // adc viagens
+  addTravel(travel: Travel, userToken: string) : Observable<any> {
+     //Atualizando o header da requisicao para enviar o token
+    if(this.httpOptions.headers.has('Authorization'))
+      this.httpOptions.headers = this.httpOptions.headers.delete('Authorization')
+    if(!this.httpOptions.headers.has('Authorization'))
+      this.httpOptions.headers = this.httpOptions.headers.append('Authorization', userToken)
+
+    return this.http.post<Travel>(this.url+"register", travel, this.httpOptions).pipe();
+  }
 
   // visualizar minhas viagens
   getTravels(token: string) : Observable<any> {
@@ -26,4 +35,6 @@ export class TravelService{
 
     return this.http.get(this.url+"mytravels", this.httpOptions)
   }
+
+
 }

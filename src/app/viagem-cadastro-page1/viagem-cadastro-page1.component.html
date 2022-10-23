@@ -58,76 +58,70 @@
                 <div class="d-flex flex-column justify-content-center full">
                     
                     <div class="d-flex flex-row mb-2 full">
-                        <div class="me-5 d-flex flex-column">
-                            <div class="form-floating mb-2">
-                                <select class="form-select">
-                                    <option>Avião</option>
-                                    <option>Carro</option>
-                                    <option>Trem</option>
-                                    <option>Ônibus</option>
-                                </select>
-                                <label class="form-label">Tipo de Transporte Ida</label>
+                        <div class="d-flex flex-column">
+
+                            <div class="d-flex flex-row justify-content-around">
+                                <div class="form-floating mb-2 full me-5">
+                                    <select class="form-select" formControlName="transporte_ida_tipo">
+                                        <option>Avião</option>
+                                        <option>Carro</option>
+                                        <option>Trem</option>
+                                        <option>Ônibus</option>
+                                    </select>
+                                    <label class="form-label">Tipo de Transporte Ida</label>
+                                </div>
+
+                                <div class="form-floating full">
+                                    <select class="form-select" formControlName="transporte_volta_tipo">
+                                        <option id="">Avião</option>
+                                        <option>Carro</option>
+                                        <option>Trem</option>
+                                        <option>Ônibus</option>
+                                    </select>
+                                    <label class="form-label">Tipo de Transporte Volta</label>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="form-floating full me-5">
+                                    <textarea class="form-control" id="decriscao-ida" required placeholder="Descrição Ida" formControlName="transporte_ida_descricao" rows="3"> </textarea>
+                                    <label class="form-label">
+                                        Descrição Ida
+                                    </label>
+                                </div>
+
+                                <div class="form-floating full">
+                                    <textarea class="form-control" id="decriscricao-volta" required placeholder="Descrição volta" formControlName="transporte_volta_descricao" rows="3"></textarea>
+                                    <label class="form-label">
+                                        Descrição Volta
+                                    </label>
+                                </div>
                             </div>
 
-                            <div class="d-flex flex-row">
-                            
+                            <div class="d-flex flex-row justify-content-between">
                                 <!--Date Picking-->
                                 <mat-form-field class="me-2">
-                                    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="transporteIdaDateControl"
+                                    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Data de Ida" formControlName="transporte_ida_date"
                                     [min]="minDate" [max]="maxDate" [disabled]="disabled">
                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                     <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
-                                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
-                                       [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
-                                       [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                        [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                        [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                        [disableMinute]="disableMinute" [hideTime]="hideTime">
                                     </ngx-mat-datetime-picker>
                                 </mat-form-field>
-                                
-                                <div class="form-floating mb-2">
-                                    <select class="form-select">
-                                        <option>Aguardando Compra</option>
-                                        <option>Comprada</option>
-                                        <option>Combinado</option>
-                                    </select>
-                                    <label class="form-label">Status Passagem Ida</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-
-            
-
-                            <div class="form-floating mb-2">
-                                <select class="form-select">
-                                    <option id="">Avião</option>
-                                    <option>Carro</option>
-                                    <option>Trem</option>
-                                    <option>Ônibus</option>
-                                </select>
-                                <label class="form-label">Status Passagem</label>
-                            </div>
-                            <div class="d-flex flex-row">
 
                                 <!--Date Picking-->
-                                <mat-form-field class="me-2">
-                                    <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Choose a date" formControlName="transporteVoltaDateControl"
+                                <mat-form-field class="">
+                                    <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Data de Ida" formControlName="transporte_volta_date"
                                     [min]="minDate" [max]="maxDate" [disabled]="disabled">
                                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                     <ngx-mat-datetime-picker #picker1 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
-                                    [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
-                                    [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
-                                    [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                        [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                        [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                        [disableMinute]="disableMinute" [hideTime]="hideTime">
                                     </ngx-mat-datetime-picker>
                                 </mat-form-field>
-
-                                <div class="form-floating mb-2">
-                                    <select class="form-select">
-                                        <option>Aguardando Compra</option>
-                                        <option>Comprada</option>
-                                        <option>Combinado</option>
-                                    </select>
-                                    <label class="form-label">Status Passagem Volta</label>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -147,15 +141,15 @@
 
                 <!-- Forms da Seção -->
                 <div class="d-flex flex-column justify-content-center full">
-                    <div class="form-floating mb-2 full">
-                        <select class="form-select">
+                    <!-- <div class="form-floating mb-2 full">
+                        <select class="form-select" formControlName="estadiaTipo">
                             <option>Pousada</option>
                             <option>Hotel</option>
                             <option>Hostel</option>
                             <option>Aluguel de Temporada</option>
                         </select>
                         <label class="form-label">Tipo de Estadia</label>
-                    </div>
+                    </div> -->
                     
                     <div class="form-floating mb-2 full">
                         <input class="form-control" id="nome-estadia" required placeholder="Nome" formControlName="nome_estadia"/>
@@ -167,11 +161,11 @@
                         <label class="form-label">Endereço</label>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-center mb-2 full">
+                    <div class="d-flex flex-row justify-content-between mb-2 full">
 
                         <!--Date Picking-->
-                        <mat-form-field class="me-2">
-                            <input matInput [ngxMatDatetimePicker]="picker2" placeholder="Choose a date" formControlName="checkInDateControl"
+                        <mat-form-field class="">
+                            <input matInput [ngxMatDatetimePicker]="picker2" placeholder="Data de Check-in" formControlName="checkin_date"
                             [min]="minDate" [max]="maxDate" [disabled]="disabled">
                             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                             <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
@@ -182,8 +176,8 @@
                         </mat-form-field>
 
                         <!--Date Picking-->
-                        <mat-form-field class="me-2">
-                            <input matInput [ngxMatDatetimePicker]="picker3" placeholder="Choose a date" formControlName="checkOutDateControl"
+                        <mat-form-field class="">
+                            <input matInput [ngxMatDatetimePicker]="picker3" placeholder="Data de Check-out" formControlName="checkout_date"
                             [min]="minDate" [max]="maxDate" [disabled]="disabled">
                             <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
                             <ngx-mat-datetime-picker #picker3 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
@@ -193,14 +187,14 @@
                             </ngx-mat-datetime-picker>
                         </mat-form-field>
 
-                        <div class="form-floating mb-2 me-2 full">
-                            <select class="form-select">
+                        <!-- <div class="form-floating mb-2 me-2 full">
+                            <select class="form-select" formControlName="estadia_status">
                                 <option>Aguardando Compra</option>
                                 <option>Comprada</option>
                                 <option>Combinado</option>
                             </select>
                             <label class="form-label">Status Estadia</label>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -219,7 +213,7 @@
                 <div class="d-flex flex-column justify-content-center full">
                     <div class="d-flex flex-row align-items-center mb-2 full">
                         <div class="form-floating me-2 full">
-                            <input class="form-control" id="endereco-estadia" required placeholder="Participante" formControlName="participante"/>
+                            <input class="form-control" id="participante" required placeholder="Participante" formControlName="participante"/>
                             <label class="form-label">Participante</label>
                         </div>
                         <div>
