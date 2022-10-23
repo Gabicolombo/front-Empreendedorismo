@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
-import { UserService } from '../services/user';
+import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: any;
-  errorMessage!: string
+  errorMessage!: string;
   error: boolean = false;
+  logoImg = 'assets/img/yourbag.img';
+  altImg = 'Yourbag';
 
   constructor(private userService: UserService,
     private routes: Router) { }

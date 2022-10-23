@@ -1,0 +1,37 @@
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+  position: absolute;
+  right: 15px;
+  background-color: #A659B0!important;
+  border-radius: 25px;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: #a18ecacc!important;
+}
+
+.card{
+  background-color: #ebebeb !important;
+  /* height: 858px !important; */
+}
+
+.card-title{
+  /* position: absolute;
+  width: 710px !important;
+  height: 40px !important;
+  left: 126px !important;
+  top: 146px !important; */
+  font-family: 'Roboto' !important;
+  font-style:normal !important;
+  font-weight: 700 !important;
+  font-size: 34px !important;
+  line-height: 40px !important;
+  color: rgba(28, 28, 27, 0.62) !important;
+}
+
+.card-vacation{
+  height: 140px;
+  background: #ffffff !important;
+  border-radius: 12px;
+}
