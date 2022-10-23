@@ -82,12 +82,14 @@ export class ViagemCadastroPage1Component implements OnInit, OnChanges {
       //Trasportes
       const transportes =  [
         {
+          id: 0,
           tipo: this.travelForm?.get('transporte_ida_tipo').value,
           descricao: this.travelForm?.get('transporte_ida_descricao').value,
           data: this.travelForm?.get('transporte_ida_date').value,
           caminho: "ida"
         }, 
         {
+          id: 1,
           tipo: this.travelForm?.get('transporte_volta_tipo').value,
           descricao: this.travelForm?.get('transporte_volta_descricao').value,
           data: this.travelForm?.get('transporte_volta_date').value,
@@ -98,6 +100,7 @@ export class ViagemCadastroPage1Component implements OnInit, OnChanges {
       //Estadia
       const hotel = [
           { 
+            id: 0,
             nome: this.travelForm.get('nome_estadia').value,
             endereco: this.travelForm.get('endereco_estadia').value,
             check_in: this.travelForm.get('checkin_date').value,
@@ -107,7 +110,8 @@ export class ViagemCadastroPage1Component implements OnInit, OnChanges {
 
       //setup travel values
       const travel = new Travel(this.travelForm.get('nome_viagem').value, this.travelForm.get('origem').value, 
-        this.travelForm.get('destino').value, transportes, hotel, this.user, [this.travelForm.get('participante').value]);
+    this.travelForm.get('destino').value, this.travelForm?.get('transporte_ida_date').value,this.travelForm?.get('transporte_volta_date').value,
+     transportes, hotel, this.user, 1000);
 
       console.log(travel);
 
