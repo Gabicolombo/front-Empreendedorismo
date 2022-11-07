@@ -5,7 +5,7 @@
         <div class="row">
           <div class="d-inline p-2">
             <h4 class="card-title" style="display:inline">Minhas viagens</h4>
-            <button class="btn btn-primary" type="submit"><b>+Nova viagem</b></button>
+            <button class="btn btn-primary" type="submit" (click)="newTravel()"><b>+ Nova viagem</b></button>
           </div>
           <hr>
         </div>
@@ -21,9 +21,9 @@
           </div>
           <div class="d-flex flex-column">
             <div class="mr-auto p-3">
-              <button class="btn config" style="right: 32px">
+              <a class="btn config" style="right: 32px" id="dropdown">
                 <img class="rounded mx-auto d-block" src="assets\img\Vector29.png" alt="image" width="27" height="8" alt="" />
-              </button>
+              </a>
             </div>
             <div class="mr-auto p-4">
               <button class="btn btn-primary" style="right: 32px" type="submit"><b>$ Orçamento</b></button>
@@ -33,7 +33,43 @@
       </div>
     </div>
     <div class="card form-group col-md-4" style="right:-5rem">
-      <div class="card-body"></div>
+
+
+        <div  id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner p-3 d-flex text-center">
+            <div *ngFor="let travel of travels"  class="carousel-item active">
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="border:none; background-color: transparent;">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <p><b>{{ travel.nome }}</b></p>
+                <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="border:none; background-color:transparent;">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <hr>
+              <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12">
+                <div class="d-flex flex-row justify-content-start flex-grow-1" *ngFor="let plan of travel.roteiro">
+                  <div class="d-flex flex-row justify-content-start align-items-center p-3">
+                    <i class="fa fa-map-marker" style="color: #a18ecacc!important; font-size:5rem"></i>
+                  </div>
+                  <div class="d-flex flex-column align-items-start justify-content-center px-5">
+                    <div class="mr-auto p-2"><b>{{ plan.local }}</b></div>
+                    <div class="mr-auto p-2">{{plan.dia}} Jan - {{plan.hora}}h</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
     </div>
   </div>
 </div>

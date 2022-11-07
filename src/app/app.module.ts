@@ -6,6 +6,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatNativeDateModule} from '@angular/material/core';
+// import { CarouselModule } from 'ng-carousel-cdk';
+// import { MatCarouselModule } from '@ngmodule/material-carousel'
 
 import {MaterialExampleModule} from '../material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -50,9 +52,8 @@ import {
     MatNativeDateModule,
     MaterialExampleModule,
     MatIconModule,
-    [RouterModule.forRoot(routerConfig, {useHash: false}),
-    BrowserAnimationsModule
-  ],
+    [RouterModule.forRoot(routerConfig, {useHash: false}), BrowserAnimationsModule],
+    // CarouselModule,
     NgxMatDatetimePickerModule,
     NgxMatNativeDateModule,
     NgxMatTimepickerModule,

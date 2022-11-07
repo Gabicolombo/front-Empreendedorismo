@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   token: string;
   travels: Travel[] = [];
+  plans: any[] = [];
 
   constructor(private routes: Router, private travelService: TravelService,
    private userService: UserService ) { }
@@ -34,12 +35,25 @@ export class HomeComponent implements OnInit {
           origem: data.origem,
           destino: data.destino,
           dataFim: data.dataFim,
-          dataInicio: data.dataInicio
+          dataInicio: data.dataInicio,
+          roteiro: data.roteiro
         }));
 
         this.travels = travels;
       })
+  }
 
+  getPlan(){
+    console.log(this.travels);
+    const plans = this.travels.map((data:any) => ({
+      dia: data.roteiro.dia,
+    }));
+
+    console.log(plans);
+  }
+
+  newTravel(){
+    this.routes.navigate(['/CadastroViagem/Page1']);
   }
 
 }
