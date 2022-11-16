@@ -49,3 +49,10 @@
   width: 30px;
   height: 48px;
 }
+
+.tab-li{
+  border-radius: 4px;
+  color: black;
+  padding: 2px 2px 2px 2px;
+  background-color: #A659B0 !important;
+}
