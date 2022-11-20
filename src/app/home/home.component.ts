@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
 import { TravelService } from '../services/travels.service';
 import { UserService } from '../services/user.service';
+import { CheckListService } from '../services/checklist.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { User } from '../models/user';
 import { Travel } from '../models/travel';
@@ -13,14 +14,14 @@ import { Obj } from '@popperjs/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
 
   token: string;
   travels: Travel[] = [];
   // plans: any[] = [];
   checklist: CheckList[] = [];
 
-  constructor(private routes: Router, private travelService: TravelService,
+  constructor(private routes: Router, private checklistService: CheckListService, private travelService: TravelService,
    private userService: UserService, private router: ActivatedRoute ) { }
 
   ngOnInit(): void {
@@ -44,22 +45,28 @@ export class HomeComponent implements OnInit {
         }));
 
         this.travels = travels;
-        console.log(this.travels);
+
       });
 
-    // this.userService.getUsuario(this.token)
-    //   .subscribe(res => {
-    //     const checklist = res.checklist.map((data:any) => ({
-    //       id: data.id,
-    //       viagem: data.viagem,
-    //       status: data.status,
-    //       descricao: data.descricao,
-    //       categoria: data.categoria,
-    //     }));
-    //     this.checklist = checklist;
-    //     console.log(checklist);
-    //     console.log(this.checklist);
-    //   });
+    this.checklistService.getChecklist('Documentos', this.token)
+      .subscribe(res => {
+        console.log(res);
+        const checklist = res.map((data:any) => ({
+          viagem: data._id,
+          info: data.info,
+        }));
+
+        this.checklist = checklist;
+        console.log(this.checklist);
+      });
+  }
+
+  isChecked(id: any, e:any){
+    console.log(e);
+    let body = {
+      status: true
+    }
+    this.checklistService.updateChecklist(id, this.token, body);
   }
 
   deleteTravel(id: any){
