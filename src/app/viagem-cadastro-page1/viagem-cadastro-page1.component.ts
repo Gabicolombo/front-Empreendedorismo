@@ -66,7 +66,7 @@ export class ViagemCadastroPage1Component implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void{
-        
+
   }
 
   createTravel(): void {
@@ -87,7 +87,7 @@ export class ViagemCadastroPage1Component implements OnInit, OnChanges {
           descricao: this.travelForm?.get('transporte_ida_descricao').value,
           data: this.travelForm?.get('transporte_ida_date').value,
           caminho: "ida"
-        }, 
+        },
         {
           id: 1,
           tipo: this.travelForm?.get('transporte_volta_tipo').value,
@@ -99,7 +99,7 @@ export class ViagemCadastroPage1Component implements OnInit, OnChanges {
 
       //Estadia
       const hotel = [
-          { 
+          {
             id: 0,
             nome: this.travelForm.get('nome_estadia').value,
             endereco: this.travelForm.get('endereco_estadia').value,
@@ -109,11 +109,9 @@ export class ViagemCadastroPage1Component implements OnInit, OnChanges {
       ]
 
       //setup travel values
-      const travel = new Travel(this.travelForm.get('nome_viagem').value, this.travelForm.get('origem').value, 
+      const travel = new Travel(this.travelForm.get('nome_viagem').value, this.travelForm.get('origem').value,
     this.travelForm.get('destino').value, this.travelForm?.get('transporte_ida_date').value,this.travelForm?.get('transporte_volta_date').value,
      transportes, hotel, this.user, 1000);
-
-      console.log(travel);
 
       //add travel
       this.travelService.addTravel(travel, this.userToken).subscribe(
