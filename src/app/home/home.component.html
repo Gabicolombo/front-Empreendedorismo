@@ -117,12 +117,12 @@
                 </div>
                 <hr>
                 <div class="tab-content">
-                  <mat-selection-list #checklist>
-                    <h4 >Documentos</h4>
-                    <div *ngFor="let c of ch.info" (change)="isChecked(c.id, $event)">
+                  <mat-selection-list>
+                    <h4 id="documents">Documentos</h4>
+                    <div *ngFor="let c of ch.info">
 
-                      <mat-list-option *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option>
-                      <mat-list-option *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option>
+                      <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option>
+                      <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option>
 
                     </div>
                   </mat-selection-list>

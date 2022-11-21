@@ -50,8 +50,7 @@ export class CheckListService{
       this.httpOptions.headers = this.httpOptions.headers.append('Authorization', token);
 
     let url = `${this.url}/${idChecklist}`;
-    console.log(url);
-    console.log(body);
+
     return this.http.put<CheckList>(url, body, this.httpOptions).subscribe(response => console.log(response))
   }
 }

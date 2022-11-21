@@ -50,22 +50,21 @@ export class HomeComponent implements OnInit{
 
     this.checklistService.getChecklist('Documentos', this.token)
       .subscribe(res => {
-        console.log(res);
         const checklist = res.map((data:any) => ({
           viagem: data._id,
           info: data.info,
         }));
 
         this.checklist = checklist;
-        console.log(this.checklist);
+
       });
   }
 
-  isChecked(id: any, e:any){
-    console.log(e);
+  isChecked(id: any, selected: boolean){
     let body = {
-      status: true
-    }
+      status: selected
+    };
+
     this.checklistService.updateChecklist(id, this.token, body);
   }
 
