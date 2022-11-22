@@ -6,27 +6,32 @@
         <h1>Cadastre-se para acessar</h1>
         <img class="rounded mx-auto d-block" src="/assets/img/yourbag.png" alt="image" width="75" height="75" alt="" /><br/>
         
-        <form id="register-form" action="">
+        <form id="register-form" [formGroup]="cadastro" (ngSubmit)="NovoUsuario()">
 
             <div class="full-box">
-                <label for="name">Nome Completo*</label>
-                <input type="name" name="name" id="name" placeholder="Digite seu nome completo">
+                <label for="nome">Nome Completo*</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" formControlName="nome">
+            </div>
+
+            <div class="full-box">
+                <label for="nome">Nome do Usuário*</label>
+                <input type="text" name="nome_usuario" id="nome_usuario" placeholder="Digite seu nome do seu usuário" formControlName="nome_usuario">
             </div>
 
             <div class="full-box">
                 <label for="email">E-Mail*</label>
-                <input type="email" nome="email" id="email" placeholder="Digite seu e-mail">
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" formControlName="email">
             </div>
 
-            <div class="half-box spacing">
+            <div class="full-box">
                 <label for="lastname">Senha*</label>
-                <input type="password" name="password" id="password" placeholder="Digite sua senha">
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha" formControlName="senha">
             </div>
-
-            <div class="half-box">
+            
+<!--             <div class="half-box">
                 <label for="passconfirmation">Confirmação de senha*</label>
-                <input type="password" name="passconfirmation" id="passwordconfirmation" placeholder="Digite a sua senha novamente">
-            </div>
+                <input type="password" name="passconfirmation" id="senhaconfirmation" placeholder="Digite a sua senha novamente" formControlName="senha">
+            </div> -->
 
             <!-- <div>
                 <input type="checkbox" name="agreement" id="agreement">
@@ -36,7 +41,16 @@
             <div>
                 <label for="lastname">*Campo obrigatório</label><br/>
             </div>   
-        
+            
+            <div *ngIf="errorMessage" class="text-danger">
+                <c-alert color="danger" class="d-flex align-items-center">
+                    <!-- <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                        <use xlink:href="#exclamation-triangle-fill" />
+                    </svg> -->
+                    <b style='font-size:12px;color:red'>{{errorMessage}}</b>
+                </c-alert>
+            </div>
+
             <div class="full-box">
                 <input id="btn-submit" type="submit" value="Cadastrar">
             </div>
