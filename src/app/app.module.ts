@@ -28,6 +28,7 @@ import {
   NgxMatTimepickerModule,
   NGX_MAT_DATE_FORMATS
 } from '@angular-material-components/datetime-picker';
+import { ViagemComponent } from './viagem/viagem.component';
 
 @NgModule({
 
@@ -38,6 +39,7 @@ import {
     CadastroComponent,
     HomeComponent,
     ViagemCadastroPage1Component,
+    ViagemComponent,
   ],
   imports: [
     BrowserModule,

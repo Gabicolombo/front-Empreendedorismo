@@ -1,0 +1,76 @@
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    position: absolute;
+    right: 15px;
+    background-color: #A659B0!important;
+    border-radius: 25px;
+    color: white;
+    border: none;
+  }
+  
+  .btn-primary:hover{
+    background-color: #a18ecacc!important;
+  }
+  
+  .card{
+    background-color: #ebebeb !important;
+    /* height: 858px !important; */
+  }
+
+
+  
+  .card-title{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 40px;
+    color: rgba(28, 28, 27, 0.62);
+  }
+  
+  .card-deck{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 23px;
+  }
+
+  .card-details{
+    background: #FFFFFF;
+    border: 2px solid rgba(215, 215, 215, 0.58);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+  }
+  
+  .cropped{
+    width: 700px; 
+    height: 156px; 
+    overflow: hidden;
+    object-position: 20px 10px;
+    margin-left: 30px;
+  }
+
+  .cropped img {
+    margin: -180px 0px 0px -150px;
+  }
+
+
+  
+  .list-group li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .list-group{
+    width: 100%;
+  }
+
+  .subtitle{
+    margin-top: 30px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: rgba(28, 28, 27, 0.62);
+  }
