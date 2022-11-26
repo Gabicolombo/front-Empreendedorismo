@@ -1,1 +1,142 @@
-<p>home works!</p>
+<div class="container-fluid mt-4 col-md-12">
+  <div class="row">
+    <div class="card form-group col-md-7" style="left:1rem">
+      <div class="card-body">
+        <div class="row">
+          <div class="d-inline p-2">
+            <h4 class="card-title" style="display:inline">Minhas viagens</h4>
+            <button class="btn btn-primary" type="submit" (click)="newTravel()"><b>+ Nova viagem</b></button>
+          </div>
+          <hr>
+        </div>
+        <br>
+        <div *ngFor="let travel of travels"
+          class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12">
+          <div class="image p-3 d-flex flex-column justify-content-center align-items-center">
+            <img class="rounded mx-auto d-block" src="assets\img\losangeles.jpg" alt="image" width="75" height="75"
+              alt="" />
+          </div>
+          <div class="d-flex flex-column justify-content-start flex-grow-1">
+            <div class="mr-auto p-2"><b>{{ travel.nome }}</b></div>
+            <div class="mr-auto p-2"><i class="fa fa-calendar-o" style="color: #a18ecacc!important;"></i>
+              {{travel.dataInicio}} - {{travel.dataFim}}</div>
+            <div class="mr-auto p-2"><i class="fa fa-plane" style="color: #a18ecacc!important;"></i> {{travel.origem}} -
+              <i class="fa fa-plane" style="color: #a18ecacc!important;"></i> {{travel.destino}}</div>
+          </div>
+          <div class="d-flex flex-column">
+            <div class="mr-auto p-3 dropdown">
+              <a class="btn config" style="right: 32px" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img class="rounded mx-auto d-block" src="assets\img\Vector29.png" alt="image" width="27" height="8"
+                  alt="" />
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a></li>
+                <li>
+                  <a class="dropdown-item" href="#" (click)="deleteTravel(travel.id)">
+                    <i class="fa fa-minus-circle" style="color: red !important" aria-hidden="true"></i>
+                    Deletar</a>
+                </li>
+              </div>
+            </div>
+
+            <div class="mr-auto p-4">
+              <button class="btn btn-primary" style="right: 32px" type="submit"><b>$ Orçamento</b></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card form-group col-md-4" style="right:-5rem">
+      <!-- <div class="d-flex flex-row justify-content-start px-5 py-3">
+        <ul class="nav nav-tabs">
+          <li class="active tab-li"><button data-toggle="tab" href="#roteiro">Roteiro</button></li>
+          <li class="tab-li"><button data-toggle="tab" href="#checklist">CheckList</button></li>
+        </ul>
+      </div> -->
+      <mat-tab-group>
+        <mat-tab label="Roteiros">
+          <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+            <!-- <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" *ngFor="let travel of travels; let index = index" [attr.data-slide-to]="index"></li>
+              </ol> -->
+            <div class="carousel-inner p-3 d-flex text-center">
+              <div *ngFor="let travel of travels; let i = index" [ngClass]="{'active': i==0}" class="carousel-item">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                  <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+                    style="border:none; background-color: transparent;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <h2><b>{{ travel.nome }}</b></h2>
+                  <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+                    style="border:none; background-color:transparent;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <hr>
+                <div class="tab-content">
+                  <div id="roteiro">
+                    <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12"
+                      *ngFor="let plan of travel.roteiro">
+                      <div class="d-flex flex-row justify-content-start flex-grow-1">
+                        <div class="d-flex flex-row justify-content-start align-items-center p-3">
+                          <i class="fa fa-map-marker" style="color: #a18ecacc!important; font-size:5rem"></i>
+                        </div>
+                        <div class="d-flex flex-column align-items-start justify-content-center px-5">
+                          <div class="mr-auto p-2"><b>{{ plan.local }}</b></div>
+                          <div class="mr-auto p-2">{{plan.dia}} Jan - {{plan.hora}}h</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="CheckList">
+          <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+            <div class="carousel-inner p-3 d-flex text-center">
+              <div *ngFor="let ch of checklist; let i = index" [ngClass]="{'active': i==0}" class="carousel-item active">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                  <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+                    style="border:none; background-color: transparent;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <h2><b>{{ ch.viagem }}</b></h2>
+                  <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+                    style="border:none; background-color:transparent;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <hr>
+                <div class="tab-content">
+                  <mat-selection-list>
+                    <h4 id="documents">Documentos</h4>
+                    <div *ngFor="let c of ch.info">
+
+                      <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option>
+                      <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option>
+
+                    </div>
+                  </mat-selection-list>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </mat-tab>
+      </mat-tab-group>
+
+
+
+    </div>
+  </div>
+</div>

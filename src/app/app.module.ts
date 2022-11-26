@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatNativeDateModule} from '@angular/material/core';
+// import { CarouselModule } from 'ng-carousel-cdk';
+// import { MatCarouselModule } from '@ngmodule/material-carousel'
 
+import {MaterialExampleModule} from '../material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,12 +18,33 @@ import { LoginComponent } from './login/login.component';
 import { routerConfig } from './app.routes';
 import { CadastroComponent } from './cadastro/cadastro.component';
 
-import { UserService } from './services/user';
+import { UserService } from './services/user.service';
+import { TravelService } from './services/travels.service';
+import { CheckListService } from './services/checklist.service';
 import { HomeComponent } from './home/home.component';
 import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cadastro-page1.component';
 import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.component';
 
+import {
+  NgxMatDateFormats,
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule,
+  NGX_MAT_DATE_FORMATS
+} from '@angular-material-components/datetime-picker';
+
+
+import {
+  NgxMatDateFormats,
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule,
+  NGX_MAT_DATE_FORMATS
+} from '@angular-material-components/datetime-picker';
+
+
 @NgModule({
+
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -25,7 +52,7 @@ import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.componen
     CadastroComponent,
     HomeComponent,
     ViagemCadastroPage1Component,
-    HomeOrcamentoComponent
+    HomeOrcamentoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,9 +62,19 @@ import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.componen
     HttpClientModule,
     RouterModule,
     NgbModule,
-    [RouterModule.forRoot(routerConfig, {useHash: false})]
+    MatNativeDateModule,
+    MaterialExampleModule,
+    MatIconModule,
+    [RouterModule.forRoot(routerConfig, {useHash: false}), BrowserAnimationsModule],
+    // CarouselModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule,
   ],
-  providers: [UserService],
+  exports:[
+    MatIconModule
+  ],
+  providers: [UserService, TravelService, CheckListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

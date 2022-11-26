@@ -1,8 +1,10 @@
-import { Vacation } from "./vacation";
+import { Travel } from "./travel";
+import { CheckList } from "./checklist";
 export class User{
   nome: string;
   nome_usuario: string;
   email: string;
   senha: string;
-  viagens: Vacation[];
+  viagens: Travel[];
+  checklist: CheckList[];
 }

@@ -8,6 +8,7 @@ import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.componen
 
 
 export const routerConfig: Routes = [
+  { path: '', redirectTo: (localStorage.getItem('token') != null ? '/Home' : '/Login'), pathMatch: 'full'},
   {path: 'Login', component: LoginComponent},
   {path: 'Cadastro', component: CadastroComponent},
   {path: 'Home', component: HomeComponent},

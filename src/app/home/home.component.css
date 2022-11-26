@@ -1,0 +1,63 @@
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+  position: absolute;
+  right: 15px;
+  background-color: #A659B0!important;
+  border-radius: 25px;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: #a18ecacc!important;
+}
+
+.card{
+  background-color: #ebebeb !important;
+  /* height: 858px !important; */
+}
+
+.card-title{
+  /* position: absolute;
+  width: 710px !important;
+  height: 40px !important;
+  left: 126px !important;
+  top: 146px !important; */
+  font-family: 'Roboto' !important;
+  font-style:normal !important;
+  font-weight: 700 !important;
+  font-size: 34px !important;
+  line-height: 40px !important;
+  color: rgba(28, 28, 27, 0.62) !important;
+}
+
+.card-vacation{
+  height: 140px;
+  background: #ffffff !important;
+  border-radius: 12px;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23a18ecacc' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  background-color: transparent;
+  width: 30px;
+  height: 48px;
+}
+
+.carousel-control-prev-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23a18ecacc' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  background-color: transparent;
+  width: 30px;
+  height: 48px;
+}
+
+.tab-li{
+  border-radius: 4px;
+  color: black;
+  padding: 2px 2px 2px 2px;
+  background-color: #A659B0 !important;
+}
+
+#documents{
+  color: #A659B0 !important;
+  font-weight: bold;
+}
