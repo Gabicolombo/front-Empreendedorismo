@@ -16,8 +16,6 @@
     /* height: 858px !important; */
   }
 
-
-  
   .card-title{
     font-family: 'Roboto';
     font-style: normal;
@@ -40,20 +38,29 @@
     border-radius: 10px;
     display: flex;
   }
-  
+
   .cropped{
     width: 700px; 
     height: 156px; 
     overflow: hidden;
     object-position: 20px 10px;
     margin-left: 30px;
+
   }
 
   .cropped img {
     margin: -180px 0px 0px -150px;
   }
 
-
+  .text{
+    margin-bottom: 0px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 21px;
+    color: rgba(28, 28, 27, 0.62);
+  }
   
   .list-group li {
     display: flex;
@@ -73,4 +80,10 @@
     font-size: 22px;
     line-height: 26px;
     color: rgba(28, 28, 27, 0.62);
+  }
+
+  .full{
+
+    width: 100%;
+    height: 100%;
   }
