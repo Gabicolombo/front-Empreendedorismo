@@ -15,6 +15,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { UserService } from './services/user';
 import { HomeComponent } from './home/home.component';
 import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cadastro-page1.component';
+import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cad
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    ViagemCadastroPage1Component
+    ViagemCadastroPage1Component,
+    HomeOrcamentoComponent
   ],
   imports: [
     BrowserModule,
