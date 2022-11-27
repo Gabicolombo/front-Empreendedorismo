@@ -33,16 +33,6 @@ import {
   NGX_MAT_DATE_FORMATS
 } from '@angular-material-components/datetime-picker';
 
-
-import {
-  NgxMatDateFormats,
-  NgxMatDatetimePickerModule,
-  NgxMatNativeDateModule,
-  NgxMatTimepickerModule,
-  NGX_MAT_DATE_FORMATS
-} from '@angular-material-components/datetime-picker';
-
-
 @NgModule({
 
   declarations: [
