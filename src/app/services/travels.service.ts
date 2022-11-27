@@ -38,13 +38,18 @@ export class TravelService{
     return this.http.get(this.url+"mytravels", this.httpOptions)
   }
 
-   // orçamento
-   getBudget(token: string, idTravel: string): Observable<any> {
+  // orçamento
+  getBudget(token: string, idTravel: string): Observable<any> {
     //Atualizando o header da requisicao para enviar o token
     if(this.httpOptions.headers.has('Authorization'))
       this.httpOptions.headers = this.httpOptions.headers.delete('Authorization')
     if(!this.httpOptions.headers.has('Authorization'))
       this.httpOptions.headers = this.httpOptions.headers.append('Authorization', token)
+
+    let url = `${this.url}get-budget/${idTravel}`
+    return this.http.get(url, this.httpOptions)
+  }
+
 
     let url = `${this.url}get-budget/${idTravel}`
     return this.http.get(url, this.httpOptions)
