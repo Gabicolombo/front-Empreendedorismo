@@ -50,10 +50,6 @@ export class TravelService{
     return this.http.get(url, this.httpOptions)
   }
 
-
-    let url = `${this.url}get-budget/${idTravel}`
-    return this.http.get(url, this.httpOptions)
-  }
   // deletar viagens
   deleteTravels(idViagem: string | null, token: string){
     if(this.httpOptions.headers.has('Authorization'))
