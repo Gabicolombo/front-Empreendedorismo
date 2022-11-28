@@ -1,7 +1,7 @@
 <div class="main-div">
     <div class="main-div-orcamento shadow p-3 mb-5 bg-white rounded">
         <div class="titulo">
-            <button type="button" class="botao-voltar">
+            <button type="button" class="botao-voltar" (click)="goHome()">
                 <img src="assets\voltar.png" alt="voltar">
             </button>
             <h2 class="titulo-viagem">{{ budgetTravel[0].nome }}</h2>
@@ -128,7 +128,7 @@
                         </div>
                       </div>
                     </div>
-    
+
                   </div>
                 </div>
               </div>
@@ -155,20 +155,20 @@
                       <mat-selection-list>
                         <h4 id="documents">Documentos</h4>
                         <div *ngFor="let c of ch.info">
-    
+
                           <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option>
                           <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option>
-    
+
                         </div>
                       </mat-selection-list>
                     </div>
-    
+
                   </div>
                 </div>
               </div>
-    
+
             </mat-tab>
           </mat-tab-group>
     </div>
-    
+
 </div>

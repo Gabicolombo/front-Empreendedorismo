@@ -68,6 +68,12 @@ export class HomeComponent implements OnInit{
     this.checklistService.updateChecklist(id, this.token, body);
   }
 
+  getBucket(id: any){
+    console.log(id);
+    this.routes.navigate(['Orcamento', id]);
+
+  }
+
   deleteTravel(id: any){
     this.travelService.deleteTravels(id, this.token);
   }
