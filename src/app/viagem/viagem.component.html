@@ -4,10 +4,10 @@
         <div class="card-body">
           <div class="row">
             <div class="d-inline p-2">
-              <button class="btn btn-primary-before" type="button">
+              <button class="btn btn-primary-before" type="button" (click)="irPraHome()">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               </button>
-              <h4 class="card-title" style="display:inline;">travel.nome</h4>
+              <h4 class="card-title" style="display:inline;">{{travel.nome}}</h4>
               <button class="btn btn-primary" type="submit" (click)="orcamentoTravel()"><b>$ Orçamento</b></button>
             </div>
             <hr>
@@ -21,8 +21,8 @@
             </div>
 
             <div class="row justify-content-between">
-              <div class="text col-4 p-3" style="margin-left: 54px; font-size: 18px!important;" ><i class="fa fa-plane" style="color: #a18ecacc!important; "></i> travel.origem - <i class="fa fa-plane" style="color: #a18ecacc!important;"></i> travel.destino </div>
-              <div class="text col-4 p-3" style="margin-right: 54px; font-size: 18px!important;"><i class="fa fa-calendar-o" style="color: #a18ecacc!important;"></i> travel.dataInicio - travel.dataFim</div>
+              <div class="text col-5   p-3" style="margin-left: 3.5rem; font-size: 18px!important;" ><i class="fa fa-plane" style="color: #a18ecacc!important; "></i> {{travel.origem}} - <i class="fa fa-plane" style="color: #a18ecacc!important;"></i> {{travel.destino}} </div>
+              <div class="text col-5 p-3" style="margin-right: 1rem; font-size: 18px!important;"><i class="fa fa-calendar-o" style="color: #a18ecacc!important;"></i> {{travel.dataInicio}} - {{travel.dataFim}}</div>
             </div>
             
             <!--  Transportes  -->
@@ -33,44 +33,39 @@
             </div>
 
             
-            <div class="card-deck p-2 full" >
+            <div *ngFor="let transporte of travel.transportes" class="card-deck p-2" styles="display:inline" >
               <!--  Transporte Ida  -->
-              <div class="card-details">
+              <div *ngIf="transporte.caminho == 'ida'"  class="card-details">
 
                 <div class="card-body d-flex flex-row mb-2 justify-content-around full" >    
                   <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2">Tipo de transporte</h5>
-                    <h5 class="text mb-2 p-2 border" style="border-radius: 10px; text-align: center;">Avião</h5>
-                    <h5 class="text mb-2 p-2 ">Dia</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">13/01/2023</h5>
+                    <h5 class="text mb-2 p-2">Transporte</h5>
+                    <h5 class="text mb-2 p-2 border" style="border-radius: 10px; text-align: center;">{{transporte.tipo}}</h5>
+                    <h5 class="text mb-2 p-2 ">Descrição</h5>
+                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{transporte.descricao}}</h5>
                   </div>
                   <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2 ">Status</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">Comprado</h5>
-                    
-                    <h5 class="text mb-2 p-2 ">Horário</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">15:00</h5>  
+                    <h5 class="text mb-2 p-2 ">Data</h5>
+                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{transporte.data}}</h5>
+                      
                   </div>
               </div>
                 
               </div>
               
               <!--  Transporte Volta  -->
-              <div class="card-details">
+              <div *ngIf="transporte.caminho == 'volta'" class="card-details">
 
                 <div class="card-body d-flex flex-row mb-2 justify-content-around full" >    
                   <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2">Tipo de transporte</h5>
-                    <h5 class="text mb-2 p-2 border" style="border-radius: 10px; text-align: center;">Avião</h5>
-                    <h5 class="text mb-2 p-2 ">Dia</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">13/01/2023</h5>
+                    <h5 class="text mb-2 p-2">Transporte</h5>
+                    <h5 class="text mb-2 p-2 border" style="border-radius: 10px; text-align: center;">{{transporte.tipo}}</h5>
+                    <h5 class="text mb-2 p-2 ">Descrição</h5>
+                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{transporte.descricao}}</h5>
                   </div>
                   <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2 ">Status</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">Comprado</h5>
-                    
-                    <h5 class="text mb-2 p-2 ">Horário</h5>
-                    <h5 class="text mb-2 p-2 border" style="border-radius: 10px; text-align: center;">15:00</h5>  
+                    <h5 class="text mb-2 p-2 ">Data</h5>
+                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{transporte.data}}</h5>
                   </div>
               </div>
               
@@ -80,35 +75,27 @@
           <!--  Hospedagem  -->
           <div class="subtitle mr-auto p-2"><b>Hospedagem</b></div>
 
-          <div class="card-details shadow-sm d-flex flex-row mb-2 justify-content-around mt-3 col-md-12">
+          <div *ngFor="let hotel of travel.hotel" class="card-details shadow-sm d-flex flex-row b-2 justify-content-around mt-3 col-md-12">
             <div class="" style="margin: 1.1rem;">
               <div class="text mr-auto p-2"><b>Hotel</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">Hotel Feliz </h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; ">{{hotel.nome}}</h5>
               <div class="text mr-auto p-2"><b>Endereço</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">Rua Gigante Feliz</h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{hotel.endereco}}</h5>
             </div>
             <div class="" style="margin: 1.1rem;">
               <div class="text mr-auto p-2"><b>Data Check-in</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">05/05/2023</h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{hotel.check_in}}</h5>
               <div class="text mr-auto p-2"><b>Data Check-out</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">20/05/2023</h5>
-            </div>
-            <div class="" style="margin: 1.1rem;">
-              <div class="text mr-auto p-2"><b>Hora Check-in</b></div>       
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">15:00</h5>
-              <div class="text mr-auto p-2"><b>Hora Check-out</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">09:00</h5>
-            </div>
-            <div class="" style="margin: 1.1rem;">
-              <div class="text mr-auto p-2"><b>Status</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">Comprado</h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{hotel.check_out}}</h5>
             </div>
           </div>
               
           <!--  Participantes -->
           <div class="subtitle mr-auto p-2"><b>Participantes</b></div>
-          <div class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12" >
+          <div *ngFor="let participantes of travel.participantes" class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12" >
             <ul class="list-group ">
+              <!-- Antes só do que mal acompanhado ;) -->
+
               <li class="text list-group-item">Nome participante 1</li>
               <li class="text list-group-item">Nome participante 2</li>
               <li class="text list-group-item">Nome participante 3</li>
@@ -119,83 +106,53 @@
     </div>
     
       <!-- Roteiro e Checklist da viagem-->
-      <div class="card form-group col-md-4" style="right:-5rem">
+      <div class="card form-group col-md-4" style="right:-5rem"> 
 
-        <mat-tab-group>
-          <mat-tab label="Roteiro">
-            <div id="carouselExampleControls" class="carousel slide" data-interval="false">
-              <div class="carousel-inner p-3 d-flex text-center">
-                <div class="carousel-item">
-                  <div class="d-flex flex-row justify-content-between align-items-center">
-                    <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
-                      style="border:none; background-color: transparent;">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <h2><b>travel.nome 
-                    </b></h2>
-                    <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
-                      style="border:none; background-color:transparent;">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-                  <hr>
-                  <div class="tab-content">
-                    <div id="roteiro">
-                      <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12">
-                        <div class="d-flex flex-row justify-content-start flex-grow-1">
-                          <div class="d-flex flex-row justify-content-start align-items-center p-3">
-                            <i class="fa fa-map-marker" style="color: #a18ecacc!important; font-size:5rem"></i>
-                          </div>
-                          <div class="d-flex flex-column align-items-start justify-content-center px-5">
-                            <div class="mr-auto p-2"><b> plan.lol </b></div>
-                            <div class="mr-auto p-2">plan.dia Jan - plan.horah</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-  
-                </div>
-              </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="CheckList">
-            <div id="carouselExampleControls" class="carousel slide" data-interval="false">
-              <div class="carousel-inner p-3 d-flex text-center">
-                <div  class="carousel-item active">
-                  <div class="d-flex flex-row justify-content-between align-items-center">
-                    <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
-                      style="border:none; background-color: transparent;">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <h2 id="documents"><b>Checklist Nome</b></h2>
-                    <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
-                      style="border:none; background-color:transparent;">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-                  <hr>
-                  <div class="tab-content">
-                    <mat-selection-list>
-                      <div>
-  
-                        <mat-list-option #matOption>descricao</mat-list-option>
-                        <mat-list-option #matOption >descricao</mat-list-option>
-  
-                      </div>
-                    </mat-selection-list>
-                  </div>
-  
-                </div>
-              </div>
-            </div>
+        <mat-tab-group> 
+          <mat-tab label="Roteiros"> 
+            <div id="carouselExampleControls" class="carousel slide" data-interval="false"> 
+              <div class="carousel-inner p-3 d-flex text-center"> 
+                  <hr> 
+                  <div class="tab-content"> 
+                    <div *ngFor="let roteiro of travel.roteiro"  id="roteiro"> 
+                      <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12"> 
+                        <div class="d-flex flex-row justify-content-start flex-grow-1"> 
+                          <div class="d-flex flex-row justify-content-start align-items-center p-3"> 
+                            <i class="fa fa-map-marker" style="color: #a18ecacc!important; font-size:5rem"></i> 
+                          </div> 
+                          <div class="d-flex flex-column align-items-start justify-content-center px-4"> 
+                            <div class="mr-auto p-2"><b>{{ roteiro.local }}</b></div> 
+                            <div class="mr-auto p-2">{{roteiro.dia}} - {{roteiro.hora}}h</div> 
+                          </div> 
+                        </div> 
+                      </div> 
+                    </div> 
+                  </div> 
+             </div> 
+            </div> 
+          </mat-tab> 
 
-          </mat-tab>
-        </mat-tab-group>
+          <mat-tab label="CheckList"> 
+            <div id="carouselExampleControls" class="carousel slide" data-interval="false"> 
+              <div class="carousel-inner p-3 d-flex text-center">                  
+                  <hr> 
+                  <div class="tab-content" *ngFor="let ch of travel.checklist"> 
+                    <mat-selection-list> 
+                      <h4 id="documents">{{ch.categoria}}</h4> 
+                      <div> 
+   
+                        <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status === true" [selected]="true">{{ch.descricao}}</mat-list-option> 
+                        <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status !== true" [selected]="false">{{ch.descricao}}</mat-list-option> 
+   
+                      </div> 
+                    </mat-selection-list> 
+                  </div> 
+  
+              </div> 
+            </div> 
+   
+          </mat-tab> 
+        </mat-tab-group> 
       </div>
     </div>
   </div>
