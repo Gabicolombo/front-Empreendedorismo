@@ -19,7 +19,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { UserService } from './services/user.service';
 import { TravelService } from './services/travels.service';
 import { HomeComponent } from './home/home.component';
-import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cadastro-page1.component';
+import { ViagemCadastroComponent } from './viagem-cadastro/viagem-cadastro.component';
 
 import {
   NgxMatDateFormats,
@@ -37,7 +37,7 @@ import {
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    ViagemCadastroPage1Component,
+    ViagemCadastroComponent,
   ],
   imports: [
     BrowserModule,
