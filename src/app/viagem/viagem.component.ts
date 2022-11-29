@@ -40,7 +40,7 @@ export class ViagemComponent implements OnInit {
     if(this.token == '') this.routes.navigate(['/Login']);
 
     this.travelService.getTravel(this.token,'638235058292108035f33ad1')
-      .subscribe( (res: any )=> {
+      .subscribe( (res: any)=> {
         this.travel.nome = res[0].nome
         this.travel.origem = res[0].origem
         this.travel.destino = res[0].destino
@@ -52,7 +52,7 @@ export class ViagemComponent implements OnInit {
         this.travel.checklist = res[0].checklist
         this.travel.hotel = res[0].hotel
         console.log(res);
-        console.log(this.travel.origem);
+
       })
 
   }

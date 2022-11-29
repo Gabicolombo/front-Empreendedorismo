@@ -14,6 +14,7 @@
           </div>
           <br>
 
+          <!-- Informações Gerais -->
           <div style="margin-left:5%; margin-right:5%">
             <div class="card-title mr-auto p-2" style="font-size: 25px!important;  margin: 10px; margin-top: 0px;"><b>Informações Gerais</b></div>
             <div class="cropped">
@@ -32,45 +33,37 @@
               <div class="text col-4 p-3" style="margin-right: 95px; font-size: 18px!important;">Volta</div>
             </div>
 
-            
-            <div *ngFor="let transporte of travel.transportes" class="card-deck p-2" styles="display:inline" >
-              <!--  Transporte Ida  -->
-              <div *ngIf="transporte.caminho == 'ida'"  class="card-details">
 
-                <div class="card-body d-flex flex-row mb-2 justify-content-around full" >    
-                  <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2">Transporte</h5>
-                    <h5 class="text mb-2 p-2 border" style="border-radius: 10px; text-align: center;">{{transporte.tipo}}</h5>
-                    <h5 class="text mb-2 p-2 ">Descrição</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{transporte.descricao}}</h5>
+            <div class="card-group p-2 ">
+              <div *ngFor="let transporte of travel.transportes; let first ='ida';">
+                <div class="">
+                  <div class="card-details">
+                    <div class="card-body d-flex flex-row mb-2 justify-content-around " style="width: 315px ; margin-left: 1px;">                      
+                      <div class="wrapper">       
+                        <div class="box2">
+                          <h5 class="text mb-2 p-2" >Transporte</h5>
+                          <h5 class="text d-flex mb-2 p-2 border" style="border-radius: 10px; ">{{transporte.tipo}}</h5>
+                          </div>
+                        <div class="box3">
+                          <h5 class="text mb-2 p-2 ">Data</h5>
+                          <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{transporte.data}}</h5>    
+                       </div>
+                       <div class="box1">
+                        <h5 class="text mb-2 p-2 ">Descrição</h5>
+                        <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{transporte.descricao}}</h5>
+                     
+                      </div>
+                    </div>
+                    </div>
                   </div>
-                  <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2 ">Data</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{transporte.data}}</h5>
-                      
-                  </div>
+                </div>
               </div>
-                
-              </div>
-              
-              <!--  Transporte Volta  -->
-              <div *ngIf="transporte.caminho == 'volta'" class="card-details">
-
-                <div class="card-body d-flex flex-row mb-2 justify-content-around full" >    
-                  <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2">Transporte</h5>
-                    <h5 class="text mb-2 p-2 border" style="border-radius: 10px; text-align: center;">{{transporte.tipo}}</h5>
-                    <h5 class="text mb-2 p-2 ">Descrição</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{transporte.descricao}}</h5>
-                  </div>
-                  <div class="" style="margin: 0.5rem;">
-                    <h5 class="text mb-2 p-2 ">Data</h5>
-                    <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{transporte.data}}</h5>
-                  </div>
-              </div>
-              
             </div>
-          </div>
+            
+
+
+
+            
 
           <!--  Hospedagem  -->
           <div class="subtitle mr-auto p-2"><b>Hospedagem</b></div>
@@ -78,15 +71,15 @@
           <div *ngFor="let hotel of travel.hotel" class="card-details shadow-sm d-flex flex-row b-2 justify-content-around mt-3 col-md-12">
             <div class="" style="margin: 1.1rem;">
               <div class="text mr-auto p-2"><b>Hotel</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; ">{{hotel.nome}}</h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 400px;">{{hotel.nome}}</h5>
               <div class="text mr-auto p-2"><b>Endereço</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{hotel.endereco}}</h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 400px;">{{hotel.endereco}}</h5>
             </div>
             <div class="" style="margin: 1.1rem;">
               <div class="text mr-auto p-2"><b>Data Check-in</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{hotel.check_in}}</h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 170px; text-align: center;">{{hotel.check_in}}</h5>
               <div class="text mr-auto p-2"><b>Data Check-out</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{hotel.check_out}}</h5>
+              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 170px; text-align: center;">{{hotel.check_out}}</h5>
             </div>
           </div>
               
@@ -94,12 +87,15 @@
           <div class="subtitle mr-auto p-2"><b>Participantes</b></div>
           <div *ngFor="let participantes of travel.participantes" class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12" >
             <ul class="list-group ">
-              <!-- Antes só do que mal acompanhado ;) -->
-
-              <li class="text list-group-item">Nome participante 1</li>
-              <li class="text list-group-item">Nome participante 2</li>
-              <li class="text list-group-item">Nome participante 3</li>
+              <li class="text list-group-item">{{participantes.nome}}</li>
             </ul>
+          </div>
+          <div *ngIf="travel.participantes?.length === 0" class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12">
+            <div class="" style="margin: 1.1rem;">
+              <ul class="list-group">
+                <li class="text mb-2 p-2 border" style="border-radius: 10px;">Antes só do que mal acompanhado ;)</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -110,9 +106,7 @@
 
         <mat-tab-group> 
           <mat-tab label="Roteiros"> 
-            <div id="carouselExampleControls" class="carousel slide" data-interval="false"> 
-              <div class="carousel-inner p-3 d-flex text-center"> 
-                  <hr> 
+              <div class="p-3 d-flex text-center"> 
                   <div class="tab-content"> 
                     <div *ngFor="let roteiro of travel.roteiro"  id="roteiro"> 
                       <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12"> 
@@ -129,28 +123,18 @@
                     </div> 
                   </div> 
              </div> 
-            </div> 
           </mat-tab> 
 
-          <mat-tab label="CheckList"> 
-            <div id="carouselExampleControls" class="carousel slide" data-interval="false"> 
-              <div class="carousel-inner p-3 d-flex text-center">                  
-                  <hr> 
-                  <div class="tab-content" *ngFor="let ch of travel.checklist"> 
-                    <mat-selection-list> 
-                      <h4 id="documents">{{ch.categoria}}</h4> 
-                      <div> 
-   
-                        <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status === true" [selected]="true">{{ch.descricao}}</mat-list-option> 
-                        <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status !== true" [selected]="false">{{ch.descricao}}</mat-list-option> 
-   
-                      </div> 
-                    </mat-selection-list> 
-                  </div> 
-  
-              </div> 
-            </div> 
-   
+          <mat-tab label="CheckList">   
+            <div class="tab-content" *ngFor="let ch of travel.checklist" style=" margin: 20px"> 
+              <mat-selection-list> 
+                <h4 class="text" id="categoria"><b>{{ch.categoria}}</b></h4> 
+                <div> 
+                  <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status === true" [selected]="true">{{ch.descricao}}</mat-list-option> 
+                  <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status !== true" [selected]="false">{{ch.descricao}}</mat-list-option> 
+                </div> 
+              </mat-selection-list> 
+            </div>           
           </mat-tab> 
         </mat-tab-group> 
       </div>
