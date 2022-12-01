@@ -40,3 +40,26 @@ body {
   
   padding-top: 70px; 
 }
+
+.popup{
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #333;
+  min-width: 320px;
+  position: fixed;
+  left: 50%;
+  padding: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.caixa-gastos {
+  background-color: #A866FF;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.caixa-gastos2 {
+  background: rgba(237, 214, 240, 0.68);
+  border-radius: 0px 8px 8px 0px;
+  border: none;
+}
