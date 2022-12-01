@@ -17,7 +17,7 @@ export class TravelService{
   constructor(private http: HttpClient) { }
 
   // adc viagens
-  addTravel(travel: Travel, userToken: string) : Observable<any> {
+  addTravel(travel: any, userToken: string) : Observable<any> {
      //Atualizando o header da requisicao para enviar o token
     if(this.httpOptions.headers.has('Authorization'))
       this.httpOptions.headers = this.httpOptions.headers.delete('Authorization')

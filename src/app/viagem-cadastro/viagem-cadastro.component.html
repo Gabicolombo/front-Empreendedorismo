@@ -1,4 +1,4 @@
-<form class="d-flex flex-column align-items-center" style="background-color: #ffff; height: 100vh;"  [formGroup]="travelForm" (ngSubmit)="createTravel()"> 
+<form class="d-flex flex-column align-items-center" style="background-color: #ffff; height: 100vh;"  [formGroup]="travelForm"> 
 
     <!-- Informações Gerais -->
     <div class="d-flex flex-column align-items-center" *ngIf="step == 1">
@@ -364,7 +364,7 @@
         </div>
         <!-- Submit Button -->
         <div class="justify-self"*ngIf="step == 4">
-            <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn" (click)="send()">Enviar</button>
+            <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn" (click)="createTravel()">Enviar</button>
         </div>
     </div>
     <!-- Add checklist item modal -->
