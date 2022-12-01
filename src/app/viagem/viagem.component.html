@@ -1,144 +1,129 @@
 <div class="container-fluid mt-4 col-md-12">
-    <div class="row">
-      <div class="card form-group col-md-7" style="left:1rem">
-        <div class="card-body">
-          <div class="row">
-            <div class="d-inline p-2">
-              <button class="btn btn-primary-before" type="button" (click)="irPraHome()">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              </button>
-              <h4 class="card-title" style="display:inline;">{{travel.nome}}</h4>
-              <button class="btn btn-primary" type="submit" (click)="orcamentoTravel()"><b>$ Orçamento</b></button>
-            </div>
-            <hr>
+  <div class="row">
+    <div class="card form-group col-md-7" style="left:1rem">
+      <div class="card-body">
+        <div class="row">
+          <div class="d-inline p-2">
+            <button class="btn btn-primary-before" type="button" (click)="irPraHome()">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <h4 class="card-title" style="display:inline;">{{travel.nome}}</h4>
+            <button class="btn btn-primary" type="submit" (click)="orcamentoTravel()"><b>$ Orçamento</b></button>
           </div>
-          <br>
+          <hr>
+        </div>
+        <br>
 
+        <!-- Todas as informações da viagem-->
+        <div style="margin-left:5%; margin-right:5%">
           <!-- Informações Gerais -->
-          <div style="margin-left:5%; margin-right:5%">
-            <div class="card-title mr-auto p-2" style="font-size: 25px!important;  margin: 10px; margin-top: 0px;"><b>Informações Gerais</b></div>
-            <div class="cropped">
-                <img class="img"src="assets\img\losangeles.jpg" alt="image" object-fit="cover"  alt="" />
-            </div>
+          <div class="card-title mr-auto p-2" style="font-size: 25px!important;  margin: 10px; margin-top: 0px;"><b>Informações Gerais</b></div>
+          <div class="cropped">
+              <img class="img"src="assets\img\losangeles.jpg" alt="image" object-fit="cover"  alt="" />
+          </div>
 
-            <div class="row justify-content-between">
-              <div class="text col-5   p-3" style="margin-left: 3.5rem; font-size: 18px!important;" ><i class="fa fa-plane" style="color: #a18ecacc!important; "></i> {{travel.origem}} - <i class="fa fa-plane" style="color: #a18ecacc!important;"></i> {{travel.destino}} </div>
-              <div class="text col-5 p-3" style="margin-right: 1rem; font-size: 18px!important;"><i class="fa fa-calendar-o" style="color: #a18ecacc!important;"></i> {{travel.dataInicio}} - {{travel.dataFim}}</div>
-            </div>
+          <div class="row justify-content-between">
+            <div class="text col-5   p-3" style="margin-left: 3.5rem; font-size: 18px!important;" ><i class="fa fa-plane" style="color: #a18ecacc!important; "></i> {{travel.origem}} - <i class="fa fa-plane" style="color: #a18ecacc!important;"></i> {{travel.destino}} </div>
+            <div class="text col-5 p-3" style="margin-right: 1rem; font-size: 18px!important;"><i class="fa fa-calendar-o" style="color: #a18ecacc!important;"></i> {{travel.dataInicio}} - {{travel.dataFim}}</div>
+          </div>
             
-            <!--  Transportes  -->
-            <div class="subtitle mr-auto p-2"><b>Transportes</b></div>
-            <div class="row justify-content-between full">
-              <div class="text col-4 p-3" style="margin-left: 20px; font-size: 18px!important;" >Ida</div>
-              <div class="text col-4 p-3" style="margin-right: 95px; font-size: 18px!important;">Volta</div>
-            </div>
+          <!--  Transportes  -->
+          <div class="subtitle mr-auto p-2"><b>Transportes</b></div>
+          <div class="row justify-content-between full">
+            <div class="text col-4 p-3" style="margin-left: 20px; font-size: 18px!important;" >Ida</div>
+            <div class="text col-4 p-3" style="margin-right: 95px; font-size: 18px!important;">Volta</div>
+          </div>
 
+          <div class="card-group p-2 ">
+            <div *ngFor="let transporte of travel.transportes; let first ='ida';">
+              <div class="p-2">
+                <div class="card-details">
+                  <div class="row d-flex p-2 justify-content-around" style="width: 324px;">
 
-            <div class="card-group p-2 ">
-              <div *ngFor="let transporte of travel.transportes; let first ='ida';">
-                <div class="">
-                  <div class="card-details">
-                    <div class="card-body d-flex flex-row mb-2 justify-content-around " style="width: 315px ; margin-left: 1px;">                      
-                      <div class="wrapper">       
-                        <div class="box2">
-                          <h5 class="text mb-2 p-2" >Transporte</h5>
-                          <h5 class="text d-flex mb-2 p-2 border" style="border-radius: 10px; ">{{transporte.tipo}}</h5>
-                          </div>
-                        <div class="box3">
-                          <h5 class="text mb-2 p-2 ">Data</h5>
-                          <h5 class="text mb-2 p-2 border"  style="border-radius: 10px;">{{transporte.data}}</h5>    
-                       </div>
-                       <div class="box1">
-                        <h5 class="text mb-2 p-2 ">Descrição</h5>
-                        <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; text-align: center;">{{transporte.descricao}}</h5>
-                     
-                      </div>
-                    </div>
-                    </div>
-                  </div>
+                    <div class="text mb-2 p-2 col-4" >Tranporte<br></div>
+                    <div class="text mb-2 p-2 col-6">Data<br></div>
+                    <div class="text d-flex mb-2 p-2 border col-4" style="border-radius: 10px;">{{transporte.tipo}}<br></div>
+                    <div class="text d-flex mb-2 p-2 border col-6" style="border-radius: 10px;">{{transporte.data}}</div>
+                    <div class="text mb-2 p-2 col-11">Descrição</div>
+                    <div class="text d-flex mb-2 p-2 border col-11" style="border-radius: 10px;">{{transporte.descricao}}</div>
+
+                  </div> 
                 </div>
               </div>
             </div>
-            
-
-
-
-            
-
-          <!--  Hospedagem  -->
-          <div class="subtitle mr-auto p-2"><b>Hospedagem</b></div>
-
-          <div *ngFor="let hotel of travel.hotel" class="card-details shadow-sm d-flex flex-row b-2 justify-content-around mt-3 col-md-12">
-            <div class="" style="margin: 1.1rem;">
-              <div class="text mr-auto p-2"><b>Hotel</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 400px;">{{hotel.nome}}</h5>
-              <div class="text mr-auto p-2"><b>Endereço</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 400px;">{{hotel.endereco}}</h5>
-            </div>
-            <div class="" style="margin: 1.1rem;">
-              <div class="text mr-auto p-2"><b>Data Check-in</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 170px; text-align: center;">{{hotel.check_in}}</h5>
-              <div class="text mr-auto p-2"><b>Data Check-out</b></div>
-              <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 170px; text-align: center;">{{hotel.check_out}}</h5>
-            </div>
           </div>
+
+        <!--  Hospedagem  -->
+        <div class="subtitle mr-auto p-2"><b>Hospedagem</b></div>
+
+        <div *ngFor="let hotel of travel.hotel" class="card-details shadow-sm d-flex flex-row b-2 justify-content-around mt-3 col-md-12">
+          <div class="" style="margin: 1.1rem;">
+            <div class="text mr-auto p-2"><b>Hotel</b></div>
+            <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 400px;">{{hotel.nome}}</h5>
+            <div class="text mr-auto p-2"><b>Endereço</b></div>
+            <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 400px;">{{hotel.endereco}}</h5>
+          </div>
+          <div class="" style="margin: 1.1rem;">
+            <div class="text mr-auto p-2"><b>Data Check-in</b></div>
+            <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 170px; text-align: center;">{{hotel.check_in}}</h5>
+            <div class="text mr-auto p-2"><b>Data Check-out</b></div>
+            <h5 class="text mb-2 p-2 border"  style="border-radius: 10px; width: 170px; text-align: center;">{{hotel.check_out}}</h5>
+          </div>
+        </div>
               
-          <!--  Participantes -->
-          <div class="subtitle mr-auto p-2"><b>Participantes</b></div>
-          <div *ngFor="let participantes of travel.participantes" class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12" >
-            <ul class="list-group ">
-              <li class="text list-group-item">{{participantes.nome}}</li>
+        <!--  Participantes -->
+        <div class="subtitle mr-auto p-2"><b>Participantes</b></div>
+        <div *ngFor="let participantes of travel.participantes" class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12" >
+          <ul class="list-group ">
+            <li class="text list-group-item">{{participantes.nome}}</li>
+          </ul>
+        </div>
+        <div *ngIf="travel.participantes?.length === 0" class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12">
+          <div class="" style="margin: 1.1rem;">
+            <ul class="list-group">
+              <li class="text mb-2 p-2 border" style="border-radius: 10px">Antes só do que mal acompanhado ;)</li>
             </ul>
-          </div>
-          <div *ngIf="travel.participantes?.length === 0" class="card-details shadow-sm d-flex flex-row justify-content-start mt-3 col-md-12">
-            <div class="" style="margin: 1.1rem;">
-              <ul class="list-group">
-                <li class="text mb-2 p-2 border" style="border-radius: 10px;">Antes só do que mal acompanhado ;)</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
     
-      <!-- Roteiro e Checklist da viagem-->
-      <div class="card form-group col-md-4" style="right:-5rem"> 
-
-        <mat-tab-group> 
-          <mat-tab label="Roteiros"> 
-              <div class="p-3 d-flex text-center"> 
-                  <div class="tab-content"> 
-                    <div *ngFor="let roteiro of travel.roteiro"  id="roteiro"> 
-                      <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12"> 
-                        <div class="d-flex flex-row justify-content-start flex-grow-1"> 
-                          <div class="d-flex flex-row justify-content-start align-items-center p-3"> 
-                            <i class="fa fa-map-marker" style="color: #a18ecacc!important; font-size:5rem"></i> 
-                          </div> 
-                          <div class="d-flex flex-column align-items-start justify-content-center px-4"> 
-                            <div class="mr-auto p-2"><b>{{ roteiro.local }}</b></div> 
-                            <div class="mr-auto p-2">{{roteiro.dia}} - {{roteiro.hora}}h</div> 
-                          </div> 
-                        </div> 
-                      </div> 
+  <!-- Roteiro e Checklist da viagem-->
+    <div class="card form-group col-md-4" style="right:-5rem"> 
+      <mat-tab-group> 
+        <mat-tab label="Roteiros"> 
+          <div class="p-3 d-flex text-center"> 
+            <div class="tab-content"> 
+              <div *ngFor="let roteiro of travel.roteiro"  id="roteiro"> 
+                <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12"> 
+                  <div class="d-flex flex-row justify-content-start flex-grow-1"> 
+                    <div class="d-flex flex-row justify-content-start align-items-center p-3"> 
+                      <i class="fa fa-map-marker" style="color: #a18ecacc!important; font-size:5rem"></i> 
+                    </div> 
+                    <div class="d-flex flex-column align-items-start justify-content-center px-4"> 
+                      <div class="mr-auto p-2"><b>{{ roteiro.local }}</b></div> 
+                      <div class="mr-auto p-2">{{roteiro.dia}} - {{roteiro.hora}}h</div> 
                     </div> 
                   </div> 
-             </div> 
-          </mat-tab> 
-
-          <mat-tab label="CheckList">   
-            <div class="tab-content" *ngFor="let ch of travel.checklist" style=" margin: 20px"> 
-              <mat-selection-list> 
-                <h4 class="text" id="categoria"><b>{{ch.categoria}}</b></h4> 
-                <div> 
-                  <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status === true" [selected]="true">{{ch.descricao}}</mat-list-option> 
-                  <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status !== true" [selected]="false">{{ch.descricao}}</mat-list-option> 
                 </div> 
-              </mat-selection-list> 
-            </div>           
-          </mat-tab> 
-        </mat-tab-group> 
-      </div>
+              </div> 
+            </div> 
+          </div> 
+        </mat-tab> 
+
+        <mat-tab label="CheckList">   
+          <div class="tab-content" *ngFor="let ch of travel.checklist" style=" margin: 20px"> 
+            <mat-selection-list> 
+              <h4 class="text" id="categoria"><b>{{ch.categoria}}</b></h4> 
+              <div> 
+                <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status === true" [selected]="true">{{ch.descricao}}</mat-list-option> 
+                <mat-list-option #matOption (click)="isChecked(ch._id, matOption.selected)" *ngIf="ch.status !== true" [selected]="false">{{ch.descricao}}</mat-list-option> 
+              </div> 
+            </mat-selection-list> 
+          </div>           
+        </mat-tab> 
+      </mat-tab-group> 
     </div>
   </div>
-  
-
+</div>
