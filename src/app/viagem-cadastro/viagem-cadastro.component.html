@@ -1,0 +1,402 @@
+<form class="d-flex flex-column align-items-center" style="background-color: #ffff; height: 100vh;"  [formGroup]="travelForm" (ngSubmit)="createTravel()"> 
+
+    <!-- Informações Gerais -->
+    <div class="d-flex flex-column align-items-center" *ngIf="step == 1">
+        <!-- Título -->
+        <h3 class="mt-5" style="margin: 0; padding: 0; color: #9b9b9b; font-weight: bold;">INFORMAÇÕES GERAIS</h3>
+
+        <div class="card mt-3">
+            <div class="card-body d-flex flex-column align-items-center p-5">
+
+                <!-- Seção 1 -->
+                <div class="d-flex flex-column align-items-center mb-3">
+ 
+                    <div class="d-flex flex-row justify-content-center mb-2">
+                        <div>
+                            <p class="" style="margin: 0; padding: 0; color: #9b9b9b; font-size: small; font-weight: bold;">INFORMAÇÃO GERAL</p>
+                        </div>
+                    </div>
+
+                    <!-- Forms da Seção -->
+                    <div class="d-flex flex-column justify-content-center">
+                        <div class="form-floating mb-2">
+                            <input class="form-control" id="Nome" required placeholder="Nome da Viagem" formControlName="nomeViagem"/>
+                            <label class="form-label">Nome da Viagem</label>
+                        </div>
+                        
+                        <div class="d-flex flex-row mb-2 justify-content-center">
+                            <div class="form-floating me-5">
+                                <input class="form-control" id="Origem" required placeholder="Origem" formControlName="origem"/>
+                                <label class="form-label">
+                                    Origem
+                                </label>
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="Destino" required placeholder="Destino" formControlName="destino"/>
+                                <label class="form-label">
+                                    Destino
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Seção 2 -->
+                <div class="d-flex flex-column align-items-center mb-3">
+
+                    <!-- Título da Seção -->
+                    <div class="d-flex flex-row justify-content-center mb-2">
+                        <div>
+                            <p class="" style="margin: 0; padding: 0; color: #9b9b9b; font-size: small; font-weight: bold;">TRANSPORTE</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Forms da Seção -->
+                    <div class="d-flex flex-column justify-content-center">
+                        
+                        <div class="d-flex flex-row mb-2">
+                            <div class="me-5 d-flex flex-column">
+                                <div class="form-floating mb-2">
+                                    <select class="form-select">
+                                        <option>Avião</option>
+                                        <option>Carro</option>
+                                        <option>Trem</option>
+                                        <option>Ônibus</option>
+                                    </select>
+                                    <label class="form-label">Tipo de Transporte Ida</label>
+                                </div>
+
+                                <div class="d-flex flex-row">
+                                
+                                    <!--Date Picking-->
+                                    <mat-form-field class="me-2">
+                                        <input matInput [ngxMatDatetimePicker]="picker" placeholder="Data ida" formControlName="transporteIdaDateControl"
+                                        [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                        [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                        [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                        [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                        </ngx-mat-datetime-picker>
+                                    </mat-form-field>
+                                    
+                                    <div class="form-floating mb-2">
+                                        <select class="form-select">
+                                            <option>Aguardando Compra</option>
+                                            <option>Comprada</option>
+                                            <option>Combinado</option>
+                                        </select>
+                                        <label class="form-label">Status Passagem Ida</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+
+                
+
+                                <div class="form-floating mb-2">
+                                    <select class="form-select">
+                                        <option id="">Avião</option>
+                                        <option>Carro</option>
+                                        <option>Trem</option>
+                                        <option>Ônibus</option>
+                                    </select>
+                                    <label class="form-label">Status Passagem</label>
+                                </div>
+                                <div class="d-flex flex-row">
+
+                                    <!--Date Picking-->
+                                    <mat-form-field class="me-2">
+                                        <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Data volta" formControlName="transporteVoltaDateControl"
+                                        [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                        <ngx-mat-datetime-picker #picker1 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                        [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                        [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                        [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                        </ngx-mat-datetime-picker>
+                                    </mat-form-field>
+
+                                    <div class="form-floating mb-2">
+                                        <select class="form-select">
+                                            <option>Aguardando Compra</option>
+                                            <option>Comprada</option>
+                                            <option>Combinado</option>
+                                        </select>
+                                        <label class="form-label">Status Passagem Volta</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <!-- Seção 3 -->
+                <div class="d-flex flex-column align-items-center mb-3">
+
+                    <!-- Título da Seção -->
+                    <div class="d-flex flex-row justify-content-center mb-2">
+                        <div>
+                            <p class="" style="margin: 0; padding: 0; color: #9b9b9b; font-size: small; font-weight: bold;">ESTADIA</p>
+                        </div>
+                    </div>
+
+                    <!-- Forms da Seção -->
+                    <div class="d-flex flex-column justify-content-center">
+                        <div class="form-floating mb-2">
+                            <select class="form-select">
+                                <option>Pousada</option>
+                                <option>Hotel</option>
+                                <option>Hostel</option>
+                                <option>Aluguel de Temporada</option>
+                            </select>
+                            <label class="form-label">Tipo de Estadia</label>
+                        </div>
+                        
+                        <div class="form-floating mb-2">
+                            <input class="form-control" id="nome-estadia" required placeholder="Nome" formControlName="nomeEstadia"/>
+                            <label class="form-label">Nome</label>
+                        </div>
+
+                        <div class="form-floating mb-2">
+                            <input class="form-control" id="endereco-estadia" required placeholder="Endereço" formControlName="enderecoEstadia"/>
+                            <label class="form-label">Endereço</label>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-center mb-2">
+
+                            <!--Date Picking-->
+                            <mat-form-field class="me-2">
+                                <input matInput [ngxMatDatetimePicker]="picker2" placeholder="Data check-in" formControlName="checkInDateControl"
+                                [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <ngx-mat-datetime-picker #picker2 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                </ngx-mat-datetime-picker>
+                            </mat-form-field>
+
+                            <!--Date Picking-->
+                            <mat-form-field class="me-2">
+                                <input matInput [ngxMatDatetimePicker]="picker3" placeholder="Data check-out" formControlName="checkOutDateControl"
+                                [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                <ngx-mat-datetime-picker #picker3 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                                [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                                [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                                [disableMinute]="disableMinute" [hideTime]="hideTime">
+                                </ngx-mat-datetime-picker>
+                            </mat-form-field>
+
+                            <div class="form-floating mb-2 me-2">
+                                <select class="form-select">
+                                    <option>Aguardando Compra</option>
+                                    <option>Comprada</option>
+                                    <option>Combinado</option>
+                                </select>
+                                <label class="form-label">Status Estadia</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção 4 -->
+                <div class="d-flex flex-column align-items-center mb-3 ">
+
+                    <!-- Título da Seção -->
+                    <div class="d-flex flex-row justify-content-center mb-2">
+                        <div>
+                            <p class="" style="margin: 0; padding: 0; color: #9b9b9b; font-size: small; font-weight: bold;">PARTICIPANTES</p>
+                        </div>
+                    </div>
+
+                    <!-- Forms da Seção -->
+                    <div class="d-flex flex-column justify-content-center">
+                        <div class="d-flex flex-row align-items-center mb-2">
+                            <div class="form-floating me-2">
+                                <input class="form-control" id="endereco-estadia" required placeholder="Participante" formControlName="participante"/>
+                                <label class="form-label">Participante</label>
+                            </div>
+                            <div>
+                                <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Orçamento -->
+    <div class="d-flex flex-column align-items-center justify-content-center" *ngIf="step == 2">
+        <!-- Título -->
+        <h3 class="mt-5" style="margin: 0; padding: 0; color: #9b9b9b; font-weight: bold;">ORÇAMENTO DA VIAGEM</h3>
+
+        <div class="card mt-3">
+            <div class="card-body d-flex flex-column align-items-center p-5">
+                <!-- Título da Seção -->
+                <div class="d-flex flex-row justify-content-center mb-2">
+                    <div>
+                        <p class="" style="margin: 0; padding: 0; color: #9b9b9b; font-size: small; font-weight: bold;">MÁXIMO GERAL</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <div class="caixa-gastos">
+                        <p class="m-3" style="color: white">R$</p>
+                    </div>
+                    <input class="caixa-gastos2" id="orcamento" required formControlName="maximoGastos"/>
+                </div>
+                
+                    
+                    <!--Line-->
+            </div>
+        </div>
+    </div>
+
+    <!-- Roteiro -->
+    <div class="d-flex flex-column align-items-center justify-content-center" *ngIf="step == 3">
+        <!-- Título -->
+        <div class="mt-5">
+            <h3 class="" style="margin: 0; padding: 0; color: #9b9b9b; font-weight: bold;">ROTEIROS DA VIAGEM</h3>
+        </div>
+
+        <div class="card mt-3 p-5">
+            <div class="card-body d-flex flex-column align-items-center p-5">
+                <!-- Título da Seção -->
+                <div class="d-flex flex-row justify-content-center mb-2">
+                    <div>
+                        <p class="" style="margin: 0; padding: 0; color: #9b9b9b; font-size: small; font-weight: bold;">ROTEIRO</p>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column justify-content-start align-items-start">
+                    <div class="form-floating">
+                        <input class="form-control" id="endereco-local" required placeholder="Endereco" formControlName="enderecoLocal"/>
+                        <label class="form-label">Nome do Local</label>
+                    </div>
+
+                    <!--Date Picking-->
+                    <mat-form-field>
+                        <input matInput [ngxMatDatetimePicker]="picker4" placeholder="Data da visita" formControlName="dataVisita"
+                        [min]="minDate" [max]="maxDate" [disabled]="disabled">
+                        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                        <ngx-mat-datetime-picker #picker4 [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                        [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                        [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                        [disableMinute]="disableMinute" [hideTime]="hideTime">
+                        </ngx-mat-datetime-picker>
+                    </mat-form-field>
+
+                    <div class="form-floating" style="width:100%">
+                        <textarea class="form-control" placeholder="ANOTAÇÕES SOBRE O LOCAL" id="descricao-roteiro" style="height: 100px" formControlName="descricaoLocal"></textarea>
+                        <label for="descricao-roteiro">Anotações do Local</label>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-end mt-3" style="width: 100%">
+                        <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn" (click)="addLocation()">Adicionar local</button>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <!-- Checklist -->
+    <div class="d-flex flex-column align-items-center justify-content-center" *ngIf="step == 4">
+        <!-- Título -->
+        <div class="mt-5">
+            <h3 class="" style="margin: 0; padding: 0; color: #9b9b9b; font-weight: bold;">CHECKLISTS DA VIAGEM</h3>
+        </div>
+
+        <div class="card mt-3 p-5">
+            <div class="card-body d-flex flex-column align-items-center p-5">
+                <!-- Título da Seção -->
+                <div class="d-flex flex-row justify-content-center mb-2">
+                    <div>
+                        <p class="" style="margin: 0; padding: 0; color: #9b9b9b; font-size: small; font-weight: bold;">MÁXIMO GERAL</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <div *ngFor="let checklist of getChecklistsCategoryName(); index as i" class="card mt-3 mx-2">
+                    
+                        <h3 class="align-self-center">{{checklist}}</h3>
+                        <div class="card-body d-flex flex-column align-items-center p-5">
+                            <!-- Título da Seção -->
+                            <div class="d-flex flex-column justify-content-center mb-2">
+                                <div *ngFor="let item of checklists[checklist]; index as j">
+                                    <button type="button" class="btn-close me-2" aria-label="Remove" (click)="removeChecklistItem(checklist, item)"></button>
+                                    <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault" (click)="clickChecklist(checklist, j)">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                    {{item.name}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-end" style="width: 100%">
+                                <button type="button" style="background-color: #A866FF; color: #ffff;" class="btn" (click)="openAddChecklistItemPopup(checklist)">Add Item</button>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                   <!-- <div class="d-flex flex-row justify-content-end">
+                        <button type="button" style="background-color: #A866FF; color: #ffff;" class="btn" (click)="openAddChecklistCategoryPopup()">Add Category</button>
+                        </div>
+                    -->
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between mt-5 pb-5">
+        <!-- Back Button-->
+        <div class="me-5" *ngIf="step > 1">
+            <button style="background-color: #A866FF; color: #ffff;" class="btn" (click)="previousStep()">Voltar</button>
+        </div>
+        <!-- Submit Button -->
+        <div class=""*ngIf="step != 4">
+            <button style="background-color: #A866FF; color: #ffff;" class="btn" (click)="nextStep()">Próximo</button>
+        </div>
+        <!-- Submit Button -->
+        <div class="justify-self"*ngIf="step == 4">
+            <button type="submit" style="background-color: #A866FF; color: #ffff;" class="btn">Enviar</button>
+        </div>
+    </div>
+    <!-- Add checklist item modal -->
+    <div *ngIf="newChecklistItem" class="popup" tabindex="-1">
+        <h3>Novo Item</h3>
+        <div class="form-floating m-2">
+            <input class="form-control" placeholder="ITEM DE CHECKLIST" id="checklist-item" style="height: 100px" formControlName="checklistItemName"/>
+            <label for="descricao-roteiro">Nome do item de checklist</label>
+        </div>
+        <div class="d-flex flex-row justify-content-end mt-3">
+            <button style="background-color: #A866FF; color: #ffff;" class="btn" (click)="addChecklistItem()">Adicionar</button>
+        </div>
+    </div>
+
+    <!-- Add checklist category modal -->
+    <div *ngIf="newChecklistCategory" class="popup" tabindex="-1">
+        <h3>Nova Categoria</h3>
+        <div class="form-floating m-2">
+            <input class="form-control" placeholder="NOME DA CATEGORIA" id="checklist-category" style="height: 100px" formControlName="checklistCategoryName"/>
+            <label for="descricao-roteiro">Nome da Categoria</label>
+        </div>
+        <div class="d-flex flex-row justify-content-end mt-3">
+            <button style="background-color: #A866FF; color: #ffff;" class="btn" (click)="addChecklistCategory()">Adicionar</button>
+        </div>
+    </div>
+
+    <!-- Add local sucess modal -->
+    <div *ngIf="successPopup" class="popup" tabindex="-1">
+        <h4>Local adicionado com sucesso!</h4>
+        <div class="d-flex flex-row justify-content-end mt-3">
+            <button style="background-color: #A866FF; color: #ffff;" class="btn" (click)="closeSuccessPopup()">Ok</button>
+        </div>
+    </div>
+</form>
+

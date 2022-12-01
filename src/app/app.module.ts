@@ -22,7 +22,7 @@ import { UserService } from './services/user.service';
 import { TravelService } from './services/travels.service';
 import { CheckListService } from './services/checklist.service';
 import { HomeComponent } from './home/home.component';
-import { ViagemCadastroPage1Component } from './viagem-cadastro-page1/viagem-cadastro-page1.component';
+import { ViagemCadastroComponent } from './viagem-cadastro/viagem-cadastro.component';
 import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.component';
 
 import {
@@ -41,7 +41,7 @@ import {
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    ViagemCadastroPage1Component,
+    ViagemCadastroComponent,
     HomeOrcamentoComponent,
   ],
   imports: [
