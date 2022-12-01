@@ -2,6 +2,10 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { CommonModule } from "@angular/common";
+import { TravelService } from '../services/travels.service';
+import { UserService } from '../services/user.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-viagem-cadastro',
@@ -11,8 +15,9 @@ import { CommonModule } from "@angular/common";
 export class ViagemCadastroComponent implements OnInit, OnChanges {
 
   travelForm: any;
-
+  token: string;
   step: any = 1;
+  errorMessage: string;
   //Date Picker
   minDate:Date = new Date(Date.now());
   maxDate:Date;
@@ -52,13 +57,19 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
 
   successPopup: boolean;
 
-  constructor() { }
+  constructor(private travelService:TravelService, private userService: UserService, private routes: Router, private router: ActivatedRoute) { }
 
   ngOnChanges(): void{
 
   }
 
   ngOnInit(): void {
+    this.userService.token.subscribe(value => {
+      this.token = value
+    });
+
+    if(this.token == '') this.routes.navigate(['/Login']);
+
     this.travelForm = new FormGroup({
       nomeViagem: new FormControl(''),
       origem: new FormControl(''),
@@ -182,6 +193,15 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
     console.log("Item Index: " + itemIndex);
     var status = this.checklists[categoryName][itemIndex].status;
     this.checklists[categoryName][itemIndex].status = !status;
+  }
+
+  send(){
+    console.log(this.travelForm.value);
+    this.travelService.addTravel(this.travelForm.value, this.token).subscribe(res => { 
+      this.routes.navigate(["/Home"]);
+    }, err=>{
+      this.errorMessage = err.error.message;
+    });
   }
  
 }

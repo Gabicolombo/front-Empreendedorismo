@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit{
   }
 
   newTravel(){
-    this.routes.navigate(['/CadastroViagem/Page1']);
+    this.routes.navigate(['/CadastroViagem']);
   }
 
 }

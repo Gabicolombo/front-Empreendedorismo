@@ -12,6 +12,6 @@ export const routerConfig: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'Cadastro', component: CadastroComponent},
   {path: 'Home', component: HomeComponent},
-  {path: 'CadastroViagem', component: ViagemCadastroComponent }
+  {path: 'CadastroViagem', component: ViagemCadastroComponent },
   {path: 'Orcamento/:id', component: HomeOrcamentoComponent}
 ]
