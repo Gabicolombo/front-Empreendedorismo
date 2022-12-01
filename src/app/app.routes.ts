@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from "./cadastro/cadastro.component";
 import { HomeComponent } from "./home/home.component";
 import { ViagemCadastroComponent } from "./viagem-cadastro/viagem-cadastro.component";
+import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.component';
 
 
 export const routerConfig: Routes = [
@@ -11,5 +12,6 @@ export const routerConfig: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'Cadastro', component: CadastroComponent},
   {path: 'Home', component: HomeComponent},
-  {path: 'CadastroViagem', component: ViagemCadastroComponent}
+  {path: 'CadastroViagem', component: ViagemCadastroComponent},
+  {path: 'Home/Orcamento', component: HomeOrcamentoComponent}
 ]

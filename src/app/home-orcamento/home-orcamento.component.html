@@ -1,0 +1,174 @@
+<div class="main-div">
+    <div class="main-div-orcamento shadow p-3 mb-5 bg-white rounded">
+        <div class="titulo">
+            <button type="button" class="botao-voltar">
+                <img src="assets\voltar.png" alt="voltar">
+            </button>
+            <h2 class="titulo-viagem">{{ budgetTravel[0].nome }}</h2>
+        </div>
+        <hr class="linha-titulo">
+        <div class="orcamento shadow p-3 mb-5 bg-white rounded">
+            <h3>Gastos</h3>
+            <div class="gastos">
+                <div class="gasto-desejado">
+                    <img src="assets\mala.png" alt="mala" class="mala">
+                    <img src="assets\cifrao.png" alt="mala" class="cifrao-img">
+                    <p class="gasto-desejado-titulo">Gasto Desejado</p>
+                    <p class="gasto-desejado-valor">R$ {{ budgetTravel[0].total_disponivel }}</p>
+                </div>
+                <div class="gasto-previsto">
+                    <p class="gasto-previsto-titulo">Gasto Previsto</p>
+                    <hr class="linha-gasto-previsto">
+                    <p class="cifrao">R$</p>
+                    <div class="caixa-gasto-previsto">
+                        <p class="gasto-previsto-valor"> {{ budgetTravel[0].gasto_total }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gastos-separados">
+                <div class="gastos-separados-caixa">
+                    <p class="gastos-separados-titulo">Alimentação</p>
+                    <p class="gastos-separados-descricao">Gastos para alimentação</p>
+                    <div class="caixa-gastos">
+                        <p>R$</p>
+                    </div>
+                    <div class="caixa-gastos2">
+                        <p>{{ budgetTravel[0].alimentos }}</p>
+                    </div>
+                </div>
+                <div class="gastos-separados-caixa">
+                    <p class="gastos-separados-titulo">Transporte</p>
+                    <p class="gastos-separados-descricao">Gastos para transporte</p>
+                    <div class="caixa-gastos">
+                        <p>R$</p>
+                    </div>
+                    <div class="caixa-gastos2">
+                        <p>{{ budgetTravel[0].transporte }}</p>
+                    </div>
+                </div>
+                <div class="gastos-separados-caixa">
+                    <p class="gastos-separados-titulo">Hospedagem</p>
+                    <p class="gastos-separados-descricao">Gastos para hospedagem</p>
+                    <div class="caixa-gastos">
+                        <p>R$</p>
+                    </div>
+                    <div class="caixa-gastos2">
+                        <p>{{ budgetTravel[0].hospedagem }}</p>
+                    </div>
+                </div>
+                <div class="gastos-separados-caixa">
+                    <p class="gastos-separados-titulo">Objetos</p>
+                    <p class="gastos-separados-descricao">Gastos para objetos</p>
+                    <div class="caixa-gastos">
+                        <p>R$</p>
+                    </div>
+                    <div class="caixa-gastos2">
+                        <p>{{ budgetTravel[0].objetos }}</p>
+                    </div>
+                </div>
+                <div class="gastos-separados-caixa">
+                    <p class="gastos-separados-titulo">Saúde</p>
+                    <p class="gastos-separados-descricao">Gastos para saúde</p>
+                    <div class="caixa-gastos">
+                        <p>R$</p>
+                    </div>
+                    <div class="caixa-gastos2">
+                        <p>{{ budgetTravel[0].saude }}</p>
+                    </div>
+                </div>
+                <div class="gastos-separados-caixa">
+                    <p class="gastos-separados-titulo">Outros Custos</p>
+                    <p class="gastos-separados-descricao">Gastos para outros custos</p>
+                    <div class="caixa-gastos">
+                        <p>R$</p>
+                    </div>
+                    <div class="caixa-gastos2">
+                        <p>{{ budgetTravel[0].outros }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="checklist">
+        <mat-tab-group class="shadow p-3 mb-5 bg-white rounded">
+            <mat-tab label="Roteiros">
+              <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+                <!-- <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" *ngFor="let travel of travels; let index = index" [attr.data-slide-to]="index"></li>
+                  </ol> -->
+                <div class="carousel-inner p-3 d-flex text-center">
+                  <div *ngFor="let travel of travels; let i = index" [ngClass]="{'active': i==0}" class="carousel-item">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+                        style="border:none; background-color: transparent;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <h2><b>{{ travel.nome }}</b></h2>
+                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+                        style="border:none; background-color:transparent;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                    <hr>
+                    <div class="tab-content">
+                      <div id="roteiro">
+                        <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12"
+                          *ngFor="let plan of travel.roteiro">
+                          <div class="d-flex flex-row justify-content-start flex-grow-1">
+                            <div class="d-flex flex-row justify-content-start align-items-center p-3">
+                              <i class="fa fa-map-marker" style="color: #a18ecacc!important; font-size:5rem"></i>
+                            </div>
+                            <div class="d-flex flex-column align-items-start justify-content-center px-5">
+                              <div class="mr-auto p-2"><b>{{ plan.local }}</b></div>
+                              <div class="mr-auto p-2">{{plan.dia}} Jan - {{plan.hora}}h</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="CheckList">
+              <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+                <div class="carousel-inner p-3 d-flex text-center">
+                  <div *ngFor="let ch of checklist; let i = index" [ngClass]="{'active': i==0}" class="carousel-item active">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+                        style="border:none; background-color: transparent;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <h2><b>{{ ch.viagem }}</b></h2>
+                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+                        style="border:none; background-color:transparent;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                    <hr>
+                    <div class="tab-content">
+                      <mat-selection-list>
+                        <h4 id="documents">Documentos</h4>
+                        <div *ngFor="let c of ch.info">
+    
+                          <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option>
+                          <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option>
+    
+                        </div>
+                      </mat-selection-list>
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+    
+            </mat-tab>
+          </mat-tab-group>
+    </div>
+    
+</div>

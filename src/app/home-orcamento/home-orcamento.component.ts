@@ -1,28 +1,25 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { TravelService } from '../services/travels.service';
 import { UserService } from '../services/user.service';
-import { CheckListService } from '../services/checklist.service';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-import { User } from '../models/user';
+import { Router } from '@angular/router';
 import { Travel } from '../models/travel';
 import { CheckList } from '../models/checklist';
-import { Obj } from '@popperjs/core';
+import { CheckListService } from '../services/checklist.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-home-orcamento',
+  templateUrl: './home-orcamento.component.html',
+  styleUrls: ['./home-orcamento.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeOrcamentoComponent implements OnInit {
 
   token: string;
   travels: Travel[] = [];
-  // plans: any[] = [];
   checklist: CheckList[] = [];
+  budgetTravel: Travel;
 
   constructor(private routes: Router, private checklistService: CheckListService, private travelService: TravelService,
-   private userService: UserService, private router: ActivatedRoute ) { }
+  private userService: UserService ) { }
 
   ngOnInit(): void {
     // verificando se o usuário está autenticado
@@ -32,6 +29,24 @@ export class HomeComponent implements OnInit{
 
     if(this.token == '') this.routes.navigate(['/Login']);
 
+    this.travelService.getBudget(this.token, '638235058292108035f33ad1') 
+      .subscribe(res => {
+        const budgetTravel = res.map((data:any) => ({
+          id: data._id,
+          alimentos: data.alimentos,
+          gasto_total: data.gasto_total,
+          transporte: data.transporte,
+          hospedagem: data.hospedagem,
+          nome: data.nome,
+          objetos: data.objetos,
+          outros: data.outros,
+          saude: data.saude,
+          total_disponivel: data.total_disponivel
+        }));
+
+        this.budgetTravel = budgetTravel;
+      });
+    
     this.travelService.getTravels(this.token)
       .subscribe(res => {
         const travels = res.data.map((data:any) => ({
@@ -68,12 +83,7 @@ export class HomeComponent implements OnInit{
     this.checklistService.updateChecklist(id, this.token, body);
   }
 
-  deleteTravel(id: any){
-    this.travelService.deleteTravels(id, this.token);
-  }
-
-  newTravel(){
-    this.routes.navigate(['/CadastroViagem']);
-  }
+    
+  
 
 }

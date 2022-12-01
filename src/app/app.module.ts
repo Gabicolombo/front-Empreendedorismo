@@ -6,6 +6,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatNativeDateModule} from '@angular/material/core';
+// import { CarouselModule } from 'ng-carousel-cdk';
+// import { MatCarouselModule } from '@ngmodule/material-carousel'
 
 import {MaterialExampleModule} from '../material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,9 +20,10 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 
 import { UserService } from './services/user.service';
 import { TravelService } from './services/travels.service';
+import { CheckListService } from './services/checklist.service';
 import { HomeComponent } from './home/home.component';
 import { ViagemCadastroComponent } from './viagem-cadastro/viagem-cadastro.component';
-
+import { HomeOrcamentoComponent } from './home-orcamento/home-orcamento.component';
 import {
   NgxMatDateFormats,
   NgxMatDatetimePickerModule,
@@ -38,6 +41,7 @@ import {
     CadastroComponent,
     HomeComponent,
     ViagemCadastroComponent,
+    HomeOrcamentoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +54,8 @@ import {
     MatNativeDateModule,
     MaterialExampleModule,
     MatIconModule,
-    [RouterModule.forRoot(routerConfig, {useHash: false}),
-    BrowserAnimationsModule
-  ],
+    [RouterModule.forRoot(routerConfig, {useHash: false}), BrowserAnimationsModule],
+    // CarouselModule,
     NgxMatDatetimePickerModule,
     NgxMatNativeDateModule,
     NgxMatTimepickerModule,
@@ -60,7 +63,7 @@ import {
   exports:[
     MatIconModule
   ],
-  providers: [UserService, TravelService],
+  providers: [UserService, TravelService, CheckListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
