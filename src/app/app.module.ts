@@ -43,6 +43,8 @@ import {
     HomeComponent,
     ViagemCadastroComponent,
     HomeOrcamentoComponent,
+    ViagemCadastroPage1Component,
+    ViagemComponent,
   ],
   imports: [
     BrowserModule,
