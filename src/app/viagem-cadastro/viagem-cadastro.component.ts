@@ -4,8 +4,7 @@ import { ThemePalette } from '@angular/material/core';
 import { CommonModule } from "@angular/common";
 import { TravelService } from '../services/travels.service';
 import { UserService } from '../services/user.service';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-import { User } from '../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viagem-cadastro',
@@ -14,10 +13,11 @@ import { User } from '../models/user';
 })
 export class ViagemCadastroComponent implements OnInit, OnChanges {
 
-  travelForm: any;
   token: string;
-  step: any = 1;
   errorMessage: string;
+  travelForm: any;
+
+  step: any = 1;
   //Date Picker
   minDate: Date = new Date(Date.now());
   maxDate: Date;
@@ -59,13 +59,15 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
 
   successPopup: boolean;
 
-  constructor(private travelService: TravelService, private userService: UserService, private routes: Router, private router: ActivatedRoute) { }
+  constructor(private routes: Router, private travelService: TravelService,
+    private userService: UserService) { }
 
   ngOnChanges(): void {
 
   }
 
   ngOnInit(): void {
+    // verificando se o usuário está autenticado
     this.userService.token.subscribe(value => {
       this.token = value
     });
@@ -81,6 +83,10 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
       participante: new FormControl(''),
       transporteIdaDateControl: new FormControl(''),
       transporteVoltaDateControl: new FormControl(''),
+      transporteIdaTipo: new FormControl(''),
+      transporteIdaDescricao: new FormControl(''),
+      transporteVoltaTipo: new FormControl(''),
+      transporteVoltaDescricao: new FormControl(''),
       checkInDateControl: new FormControl(''),
       checkOutDateControl: new FormControl(''),
       maximoGastos: new FormControl(''),
@@ -94,15 +100,15 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
   }
 
   createTravel(): void {
-
-    var transporteDataIda = this.travelForm.get('transporteIdaDateControl').value;
-    var transporteDataVolta = this.travelForm.get('transporteVoltaDateControl').value;
-    var checkInData = this.travelForm.get('checkInDateControl').value;
-    var checkOutData = this.travelForm.get('checkOutDateControl').value;
+    console.log(this.travelForm);
+    var transporteDataIda = new Date(this.travelForm.get('transporteIdaDateControl').value);
+    var transporteDataVolta = new Date(this.travelForm.get('transporteVoltaDateControl').value);
+    var checkInData = new Date(this.travelForm.get('checkInDateControl').value);
+    var checkOutData = new Date(this.travelForm.get('checkOutDateControl').value);
     var checklists = [];
-
+    console.log(transporteDataIda);
     var checklistCategories = Object.keys(this.checklists);
-    console.log(this.travelForm.value);
+
     for (var i = 0; i < checklistCategories.length; i++) {
       for (var j = 0; j < this.checklists[checklistCategories[i]].length; j++) {
         checklists.push({
@@ -118,27 +124,27 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
       origem: this.travelForm.get('origem').value,
       destino: this.travelForm.get('destino').value,
       total_disponivel: this.travelForm.get('maximoGastos').value,
-      dataInicio: transporteDataIda.day + transporteDataIda.month + transporteDataIda.year,
-      dataFim: transporteDataVolta.day + transporteDataVolta.month + transporteDataVolta.year,
+      dataInicio: transporteDataIda.getDay() + '/' + transporteDataIda.getMonth() + '/' + transporteDataIda.getFullYear(),
+      dataFim: transporteDataVolta.getDay() + '/' + transporteDataVolta.getMonth() + '/' + transporteDataVolta.getFullYear(),
       hotel: [{
         nome: this.travelForm.get('nomeEstadia').value,
         endereco: this.travelForm.get('enderecoEstadia').value,
-        check_in: "dia" + checkInData.day + " - " + checkInData.hour + "hs",
-        check_out: "dia" + checkOutData.day + " - " + checkOutData.hour + "hs"
+        check_in: "dia " + checkInData.getDay() + " - " + checkInData.getHours() + "hs",
+        check_out: "dia " + checkOutData.getDay() + " - " + checkOutData.getHours() + "hs"
       }],
       transportes: [{
         tipo: this.travelForm.get('transporteIdaTipo').value,
         descricao: this.travelForm.get('transporteIdaDescricao').value,
-        horario: transporteDataIda.hour + "hs",
+        horario: transporteDataIda.getTime() + "hs",
         caminho: "ida",
-        data: transporteDataIda.day + transporteDataIda.month + transporteDataIda.year
+        data: transporteDataIda.getDay() + '/'  + transporteDataIda.getMonth() + '/' + transporteDataIda.getFullYear()
       },
       {
         tipo: this.travelForm.get('transporteVoltaTipo').value,
         descricao: this.travelForm.get('transporteVoltaDescricao').value,
-        horario: transporteDataVolta.hour + "hs",
+        horario: transporteDataVolta.getHours() + "hs",
         caminho: "volta",
-        data: transporteDataVolta.day + transporteDataVolta.month + transporteDataVolta.year
+        data: transporteDataVolta.getDay() + '/' + transporteDataVolta.getMonth() + '/' + transporteDataVolta.getFullYear()
       }],
       roteiro: this.locais,
       gastos: {
@@ -152,13 +158,13 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
       checklists: checklists
 
     };
-
+    console.log(travel);
     this.travelService.addTravel(travel, this.token).subscribe(res => {
       this.routes.navigate(["/Home"]);
     }, err => {
       this.errorMessage = err.error.message;
-    });
-    
+    });;
+    this.routes.navigate(['/Home']);
   }
 
   nextStep(): void {
@@ -242,10 +248,6 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
 
   }
 
-  submit(): void {
-
-  }
-
   closeSuccessPopup(): void {
 
     this.successPopup = false;
@@ -260,4 +262,5 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
     var status = this.checklists[categoryName][itemIndex].status;
     this.checklists[categoryName][itemIndex].status = !status;
   }
+
 }
