@@ -125,31 +125,31 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
       origem: this.travelForm.get('origem').value,
       destino: this.travelForm.get('destino').value,
       total_disponivel: this.travelForm.get('maximoGastos').value,
-      dataInicio: transporteDataIda.getDay() + '/' + transporteDataIda.getMonth() + '/' + transporteDataIda.getFullYear(),
-      dataFim: transporteDataVolta.getDay() + '/' + transporteDataVolta.getMonth() + '/' + transporteDataVolta.getFullYear(),
+      dataInicio: transporteDataIda.getDate() + '/' + (transporteDataIda.getMonth()+1)+ '/' + transporteDataIda.getFullYear(),
+      dataFim: transporteDataVolta.getDate() + '/' + (transporteDataVolta.getMonth()+1)  + '/' + transporteDataVolta.getFullYear(),
       hotel: [{
         nome: this.travelForm.get('nomeEstadia').value,
         endereco: this.travelForm.get('enderecoEstadia').value,
-        check_in: "dia " + checkInData.getDay() + " - " + checkInData.getHours() + "hs",
-        check_out: "dia " + checkOutData.getDay() + " - " + checkOutData.getHours() + "hs"
+        check_in: "dia " + checkInData.getDate() + " - " + checkInData.getHours() + "hs",
+        check_out: "dia " + checkOutData.getDate() + " - " + checkOutData.getHours() + "hs"
       }],
       transportes: [{
         tipo: this.travelForm.get('transporteIdaTipo').value,
         descricao: this.travelForm.get('transporteIdaDescricao').value,
-        horario: transporteDataIda.getTime() + "hs",
+        horario: transporteDataIda.getHours() + "hs",
         caminho: "ida",
-        data: transporteDataIda.getDay() + '/'  + transporteDataIda.getMonth() + '/' + transporteDataIda.getFullYear()
+        data: transporteDataIda.getDate() + '/' + (transporteDataIda.getMonth()+1) + '/' + transporteDataIda.getFullYear()
       },
       {
         tipo: this.travelForm.get('transporteVoltaTipo').value,
         descricao: this.travelForm.get('transporteVoltaDescricao').value,
         horario: transporteDataVolta.getHours() + "hs",
         caminho: "volta",
-        data: transporteDataVolta.getDay() + '/' + transporteDataVolta.getMonth() + '/' + transporteDataVolta.getFullYear()
+        data: transporteDataVolta.getDate() + '/' + (transporteDataVolta.getMonth()+1) + '/' + transporteDataVolta.getFullYear()
       }],
       roteiro: [{
         local: this.travelForm.get('enderecoLocal').value,
-        dia: dataVisita.getDay(),
+        dia: dataVisita.getDate(),
         mes: dataVisita.getMonth() + 1,
         hora: dataVisita.getHours(),
         descricao: this.travelForm.get('descricaoLocal').value,
