@@ -103,11 +103,11 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
 
     var transporteDataIda = new Date(this.travelForm.get('transporteIdaDateControl').value);
     var transporteDataVolta = new Date(this.travelForm.get('transporteVoltaDateControl').value);
-    var dataVisita = new Date(this.travelForm.get('visitaDate').value);
+    var dataVisita = new Date(this.travelForm.get('dataVisita').value);
     var checkInData = new Date(this.travelForm.get('checkInDateControl').value);
     var checkOutData = new Date(this.travelForm.get('checkOutDateControl').value);
     var checklists = [];
-    console.log(transporteDataIda);
+    
     var checklistCategories = Object.keys(this.checklists);
 
     for (var i = 0; i < checklistCategories.length; i++) {
@@ -148,8 +148,9 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
         data: transporteDataVolta.getDay() + '/' + transporteDataVolta.getMonth() + '/' + transporteDataVolta.getFullYear()
       }],
       roteiro: [{
-        local: this.locais,
+        local: this.travelForm.get('enderecoLocal').value,
         dia: dataVisita.getDay(),
+        mes: dataVisita.getMonth() + 1,
         hora: dataVisita.getHours(),
         descricao: this.travelForm.get('descricaoLocal').value,
       }],
@@ -164,7 +165,7 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
       checklists: checklists
 
     };
-    console.log(travel);
+    
     this.travelService.addTravel(travel, this.token).subscribe(res => {
       this.routes.navigate(["/Home"]);
     }, err => {
@@ -186,10 +187,11 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
   addLocation(): void {
 
     var data = this.travelForm.get('dataVisita').value;
-
+    
     this.locais.push({
       dia: data.day,
       hora: data.hour,
+      mes: data.month,
       local: this.travelForm.get('enderecoLocal').value,
       descricao: this.travelForm.get('descricaoLocal').value
     })
