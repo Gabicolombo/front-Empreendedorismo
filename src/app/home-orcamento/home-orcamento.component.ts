@@ -68,13 +68,13 @@ export class HomeOrcamentoComponent implements OnInit {
 
       });
 
-    this.checklistService.getChecklist('Documentos', this.token)
+      this.checklistService.getChecklistById(this.idTravel,this.token)
       .subscribe(res => {
         const checklist = res.map((data:any) => ({
-          viagem: data._id,
+          categoria: data._id,
           info: data.info,
         }));
-
+       
         this.checklist = checklist;
 
       });
