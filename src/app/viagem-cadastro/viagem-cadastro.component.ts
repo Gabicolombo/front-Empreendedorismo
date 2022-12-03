@@ -45,7 +45,7 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
   checklists = {
     Documentos: [{ name: "Passaporte", status: false }, { name: "RG", status: false }, { name: "Reserva Hospedagem", status: false }],
     Roupas: [{ name: "Blusa", status: false }, { name: "Calça", status: false }, { name: "Camiseta", status: false }],
-    Acessorios: [{ name: "Óculus", status: false }, { name: "Remédio", status: false }, { name: "Protetor Solar", status: false }],
+    Acessorios: [{ name: "Óculos", status: false }, { name: "Remédio", status: false }, { name: "Protetor Solar", status: false }],
     Eletronicos: [{ name: "Celular", status: false }, { name: "Carregador de Celular", status: false }, { name: "Adaptador de Tomada", status: false }]
   };
 

@@ -1,6 +1,6 @@
-<div class="container-fluid mt-4 col-md-12">
+<div class="container-fluid mt-4 col-md-12" >
   <div class="row">
-    <div class="card form-group col-md-7" style="left:1rem">
+    <div class="card form-group col-md-7" style="margin-bottom: 20px;left:1rem; top: 0.1rem; width: 795px;">
       <div class="card-body">
         <div class="row">
           <div class="titulo d-inline p-2 ">
@@ -90,7 +90,7 @@
   </div>
     
   <!-- Roteiro e Checklist da viagem-->
-    <div class="card form-group col-md-4" style="right:-5rem"> 
+    <div class="card col-md-4" style="right:-5rem; left:80px; height: max-content;"> 
       <mat-tab-group> 
         <mat-tab label="Roteiros"> 
           <div class="p-3 d-flex text-center"> 
@@ -115,7 +115,7 @@
         <mat-tab label="CheckList">   
           <div class="tab-content" *ngFor="let ch of checklist" style=" margin: 20px"> 
             <mat-selection-list> 
-              <h4 class="text" id="categoria"><b>{{ch.categoria}}</b></h4> 
+              <h4 class="text-checklist" id="categoria"><b>{{ch.categoria}}</b></h4> 
               <div *ngFor="let c of ch.info"> 
                   <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option> 
                   <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option> 

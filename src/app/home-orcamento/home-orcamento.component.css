@@ -3,6 +3,8 @@
 .main-div {
     font-family: 'Roboto';
     display: flex;
+    margin-left: -55px;
+    margin-top: -35px;
 }
 
 .card{
@@ -11,18 +13,18 @@
 }
 
 .main-div-orcamento {
-    width: 856px;
+    width: 795px;
     height: 858px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 10px;
     margin: 58px 0px 58px 73px;
-
+    border: 2px solid rgba(215, 215, 215, 0.58);
 }
 
 .orcamento {
-    width: 750px;
-    height: 676px;
-    margin: 42px 53px 42px 53px;
+    width: 740px;
+    height: 680px;
+    margin: 42px 33px 42px 13px;
 }
 
 .titulo {
@@ -233,14 +235,15 @@ h3 {
 }
 
 .checklist {
-    position: -webkit-sticky;
     padding-top: 58px;
     padding-left: 40px;
-    right: -5rem;;
+    margin-left: 25px;
+    width: 495px;
+    
 }
 
 .linha-titulo {
-    width: 791px;
+    width: 765px;
     color: #9F9F9F;
     height: 1px;
 }
@@ -296,7 +299,8 @@ h3 {
     background-color: #A659B0 !important;
   }
 
-  #documents{
+  .text-checklist{
     color: #A659B0 !important;
     font-weight: bold;
+    font-size: 15px;
   }

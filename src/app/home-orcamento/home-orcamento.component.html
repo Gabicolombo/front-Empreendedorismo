@@ -89,10 +89,10 @@
             </div>
         </div>
     </div>
-    <div class="checklist">
-        <mat-tab-group class="p-3 mb-5 bg-white rounded" style="background-color: #ebebeb !important;">
-            <mat-tab label="Roteiros">
-              <div class="carousel slide" >
+    <div class="checklist" >
+        <mat-tab-group class="p-3 mb-5 bg-white rounded" style="background-color: #ebebeb !important; border: 2px solid rgba(215, 215, 215, 0.58)">
+            <mat-tab label="Roteiros" >
+              <div class="carousel slide">
                 <div class="carousel-inner p-3 d-flex text-center">
                   <div *ngFor="let travel of travels; let i = index" [ngClass]="{'active': i==0}" class="carousel-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
@@ -121,7 +121,7 @@
             <mat-tab label="CheckList">
               <div class="tab-content" *ngFor="let ch of checklist" style=" margin: 20px"> 
                 <mat-selection-list> 
-                  <h4 class="text" id="categoria"><b>{{ch.categoria}}</b></h4> 
+                  <h4 class="text-checklist" id="categoria"><b>{{ch.categoria}}</b></h4> 
                   <div *ngFor="let c of ch.info"> 
                       <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option> 
                       <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option> 
