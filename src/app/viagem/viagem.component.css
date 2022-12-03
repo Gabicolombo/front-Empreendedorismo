@@ -5,11 +5,15 @@
     border-radius: 25px;
     color: white;
     border: none;
+    display: inline;
   }
   
-  .btn-primary:hover{
-    background-color: #a18ecacc!important;
-  }
+  .botao-voltar {
+    display: inline;
+    border: none;
+    background: transparent;
+    margin-top: 1px!important;
+}
   
   .card{
     background-color: #ebebeb !important;

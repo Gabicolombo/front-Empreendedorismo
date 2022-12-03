@@ -26,7 +26,7 @@
 }
 
 .titulo {
-    padding-top: 37px;
+    padding-top: 57px;
     width: 791px;
     height: 40px;
     display: inline;
@@ -74,6 +74,7 @@ h3 {
     position: absolute;
     padding-left: 120px;
     padding-top: 33px;
+    text-shadow: #1C1C1B;
 }
 
 .mala {
@@ -148,14 +149,15 @@ h3 {
     padding-left: 18px;
     padding-top: 9px;
     font-weight: 700;
-    line-height: 23px;
+    line-height: 33px;
+    text-shadow:#9F9F9F 1px -1px 1px, #9F9F9F -1px 1px 1px, #9F9F9F 1px 1px 1px, #9F9F9F -1px -1px 1px
 }
 .cifrao {
     font-size: 48px;
     text-align: left;
     color: #ffffff;
     padding-left: 18px;
-    padding-top: 9px;
+    padding-top: 12px;
     font-weight: 700;
     line-height: 23px;
 }
@@ -183,9 +185,10 @@ h3 {
     text-align: left;
     color: #ffffff;
     padding-left: 13px;
-    padding-top: 18px;
+    padding-top: 22px;
     position: absolute;
     left: 0px;
+    text-shadow:#9F9F9F 1px -1px 1px, #9F9F9F -1px 1px 1px, #9F9F9F 1px 1px 1px, #9F9F9F -1px -1px 1px
 
 }
 
@@ -224,18 +227,16 @@ h3 {
 
 .titulo-viagem {
     padding-left: 31px;
-    padding-top: 37px;
-    padding-bottom: 31px;
     width: 380px;
     display: inline;
-    margin-bottom: 20px;
-    bottom: 618px;
+    margin-top: 20px;
 }
 
 .checklist {
     position: -webkit-sticky;
     padding-top: 58px;
     padding-left: 40px;
+    right: -5rem;;
 }
 
 .linha-titulo {
@@ -286,20 +287,6 @@ h3 {
     height: 140px;
     background: #ffffff !important;
     border-radius: 12px;
-  }
-
-  .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23a18ecacc' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-    background-color: transparent;
-    width: 30px;
-    height: 48px;
-  }
-
-  .carousel-control-prev-icon{
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23a18ecacc' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
-    background-color: transparent;
-    width: 30px;
-    height: 48px;
   }
 
   .tab-li{

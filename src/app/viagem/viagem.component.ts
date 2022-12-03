@@ -77,5 +77,5 @@ export class ViagemComponent implements OnInit {
     this.routes.navigate(['/Home']);
   }
 
-
+  
 }
