@@ -23,7 +23,7 @@ export class TravelService{
       this.httpOptions.headers = this.httpOptions.headers.delete('Authorization')
     if(!this.httpOptions.headers.has('Authorization'))
       this.httpOptions.headers = this.httpOptions.headers.append('Authorization', userToken)
-    console.log(travel);
+      
     return this.http.post<Travel>(this.url+"register", travel, this.httpOptions).pipe();
   }
 

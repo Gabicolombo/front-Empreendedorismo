@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit{
           viagem: data._id,
           info: data.info,
         }));
-
+      
         this.checklist = checklist;
 
       });
@@ -69,7 +69,6 @@ export class HomeComponent implements OnInit{
   }
 
   getBucket(id: any){
-    console.log(id);
     this.routes.navigate(['Orcamento', id]);
 
   }
@@ -83,7 +82,6 @@ export class HomeComponent implements OnInit{
   }
 
   viewTravel(id: string){
-    console.log(id);
     this.routes.navigate(['Viagem', id]);
   }
 

@@ -26,6 +26,7 @@ export class ViagemComponent implements OnInit {
   };
   token: string;
   travels: Travel[] = [];
+  checklist: CheckList[] = [];
   idTravel: any;
 
   constructor(private routes: Router, private userService: UserService, private activatedRoute: ActivatedRoute,
@@ -40,7 +41,6 @@ export class ViagemComponent implements OnInit {
     if(this.token == '') this.routes.navigate(['/Login']);
 
     this.idTravel = this.activatedRoute.snapshot.paramMap.get("id");
-    console.log(this.idTravel);
 
     this.travelService.getTravel(this.token,this.idTravel)
       .subscribe( (res: any)=> {
@@ -54,9 +54,18 @@ export class ViagemComponent implements OnInit {
         this.travel.roteiro = res[0].roteiro
         this.travel.checklist = res[0].checklist
         this.travel.hotel = res[0].hotel
-        console.log(res);
+      });
 
-      })
+      this.checklistService.getChecklistById(this.idTravel,this.token)
+      .subscribe(res => {
+        const checklist = res.map((data:any) => ({
+          categoria: data._id,
+          info: data.info,
+        }));
+       
+        this.checklist = checklist;
+
+      });
 
   }
  

@@ -265,8 +265,6 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
 
   clickChecklist(categoryName: string, itemIndex: number): void {
 
-    console.log("Catrgory: " + categoryName);
-    console.log("Item Index: " + itemIndex);
     var status = this.checklists[categoryName][itemIndex].status;
     this.checklists[categoryName][itemIndex].status = !status;
   }

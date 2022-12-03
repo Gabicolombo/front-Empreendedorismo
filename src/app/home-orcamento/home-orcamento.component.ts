@@ -33,7 +33,6 @@ export class HomeOrcamentoComponent implements OnInit {
     if(this.token == '') this.routes.navigate(['/Login']);
 
     this.idTravel = this.route.snapshot.paramMap.get("id");
-    console.log(this.idTravel);
 
     this.travelService.getBudget(this.token, this.idTravel)
       .subscribe(res => {
@@ -51,7 +50,6 @@ export class HomeOrcamentoComponent implements OnInit {
         }));
 
         this.budgetTravel = budgetTravel;
-        console.log(this.budgetTravel);
       });
 
     this.travelService.getTravels(this.token)
