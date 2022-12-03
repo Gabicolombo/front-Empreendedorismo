@@ -100,9 +100,10 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
   }
 
   createTravel(): void {
-    console.log(this.travelForm);
+
     var transporteDataIda = new Date(this.travelForm.get('transporteIdaDateControl').value);
     var transporteDataVolta = new Date(this.travelForm.get('transporteVoltaDateControl').value);
+    var dataVisita = new Date(this.travelForm.get('visitaDate').value);
     var checkInData = new Date(this.travelForm.get('checkInDateControl').value);
     var checkOutData = new Date(this.travelForm.get('checkOutDateControl').value);
     var checklists = [];
@@ -146,7 +147,12 @@ export class ViagemCadastroComponent implements OnInit, OnChanges {
         caminho: "volta",
         data: transporteDataVolta.getDay() + '/' + transporteDataVolta.getMonth() + '/' + transporteDataVolta.getFullYear()
       }],
-      roteiro: this.locais,
+      roteiro: [{
+        local: this.locais,
+        dia: dataVisita.getDay(),
+        hora: dataVisita.getHours(),
+        descricao: this.travelForm.get('descricaoLocal').value,
+      }],
       gastos: {
         alimentos: 299,
         transporte: 560,

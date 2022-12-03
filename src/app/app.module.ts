@@ -17,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { routerConfig } from './app.routes';
 import { CadastroComponent } from './cadastro/cadastro.component';
-
+import { ViagemComponent } from './viagem/viagem.component';
 import { UserService } from './services/user.service';
 import { TravelService } from './services/travels.service';
 import { CheckListService } from './services/checklist.service';
@@ -43,7 +43,6 @@ import {
     HomeComponent,
     ViagemCadastroComponent,
     HomeOrcamentoComponent,
-    ViagemCadastroPage1Component,
     ViagemComponent,
   ],
   imports: [

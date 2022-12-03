@@ -82,4 +82,9 @@ export class HomeComponent implements OnInit{
     this.routes.navigate(['/CadastroViagem']);
   }
 
+  viewTravel(id: string){
+    console.log(id);
+    this.routes.navigate(['Viagem', id]);
+  }
+
 }

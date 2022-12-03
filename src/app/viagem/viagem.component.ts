@@ -26,7 +26,7 @@ export class ViagemComponent implements OnInit {
   };
   token: string;
   travels: Travel[] = [];
-
+  idTravel: any;
 
   constructor(private routes: Router, private userService: UserService, private activatedRoute: ActivatedRoute,
     private checklistService: CheckListService, private travelService: TravelService) { }
@@ -39,7 +39,10 @@ export class ViagemComponent implements OnInit {
 
     if(this.token == '') this.routes.navigate(['/Login']);
 
-    this.travelService.getTravel(this.token,'638235058292108035f33ad1')
+    this.idTravel = this.activatedRoute.snapshot.paramMap.get("id");
+    console.log(this.idTravel);
+
+    this.travelService.getTravel(this.token,this.idTravel)
       .subscribe( (res: any)=> {
         this.travel.nome = res[0].nome
         this.travel.origem = res[0].origem
@@ -66,7 +69,8 @@ export class ViagemComponent implements OnInit {
   }
 
   orcamentoTravel(){
-    this.routes.navigate(['/Home/Orcamento']);
+    
+    this.routes.navigate(['Orcamento', this.activatedRoute.snapshot.paramMap.get("id")]);
   }
 
   irPraHome(){
