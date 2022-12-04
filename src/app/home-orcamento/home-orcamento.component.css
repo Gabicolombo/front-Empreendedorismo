@@ -3,25 +3,32 @@
 .main-div {
     font-family: 'Roboto';
     display: flex;
+    margin-left: -55px;
+    margin-top: -35px;
+}
+
+.card{
+  background-color: #ebebeb !important;
+  /* height: 858px !important; */
 }
 
 .main-div-orcamento {
-    width: 856px;
+    width: 795px;
     height: 858px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 10px;
     margin: 58px 0px 58px 73px;
-    
+    border: 2px solid rgba(215, 215, 215, 0.58);
 }
 
 .orcamento {
-    width: 750px;
-    height: 676px;
-    margin: 42px 53px 42px 53px;
+    width: 740px;
+    height: 680px;
+    margin: 42px 33px 42px 13px;
 }
 
 .titulo {
-    padding-top: 37px;
+    padding-top: 57px;
     width: 791px;
     height: 40px;
     display: inline;
@@ -69,6 +76,7 @@ h3 {
     position: absolute;
     padding-left: 120px;
     padding-top: 33px;
+    text-shadow: #1C1C1B;
 }
 
 .mala {
@@ -143,14 +151,15 @@ h3 {
     padding-left: 18px;
     padding-top: 9px;
     font-weight: 700;
-    line-height: 23px;
+    line-height: 33px;
+    text-shadow:#9F9F9F 1px -1px 1px, #9F9F9F -1px 1px 1px, #9F9F9F 1px 1px 1px, #9F9F9F -1px -1px 1px
 }
 .cifrao {
     font-size: 48px;
     text-align: left;
     color: #ffffff;
     padding-left: 18px;
-    padding-top: 9px;
+    padding-top: 12px;
     font-weight: 700;
     line-height: 23px;
 }
@@ -178,9 +187,10 @@ h3 {
     text-align: left;
     color: #ffffff;
     padding-left: 13px;
-    padding-top: 18px;
+    padding-top: 22px;
     position: absolute;
     left: 0px;
+    text-shadow:#9F9F9F 1px -1px 1px, #9F9F9F -1px 1px 1px, #9F9F9F 1px 1px 1px, #9F9F9F -1px -1px 1px
 
 }
 
@@ -219,22 +229,21 @@ h3 {
 
 .titulo-viagem {
     padding-left: 31px;
-    padding-top: 37px;
-    padding-bottom: 31px;
     width: 380px;
     display: inline;
-    margin-bottom: 20px;
-    bottom: 618px;
+    margin-top: 20px;
 }
 
 .checklist {
-    position: -webkit-sticky;
     padding-top: 58px;
     padding-left: 40px;
+    margin-left: 25px;
+    width: 495px;
+    
 }
 
 .linha-titulo {
-    width: 791px;
+    width: 765px;
     color: #9F9F9F;
     height: 1px;
 }
@@ -253,16 +262,16 @@ h3 {
     color: white;
     border: none;
   }
-  
+
   .btn-primary:hover{
     background-color: #a18ecacc!important;
   }
-  
+
   .card{
     background-color: #ebebeb !important;
     /* height: 858px !important; */
   }
-  
+
   .card-title{
     /* position: absolute;
     width: 710px !important;
@@ -276,36 +285,22 @@ h3 {
     line-height: 40px !important;
     color: rgba(28, 28, 27, 0.62) !important;
   }
-  
+
   .card-vacation{
     height: 140px;
     background: #ffffff !important;
     border-radius: 12px;
   }
-  
-  .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23a18ecacc' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-    background-color: transparent;
-    width: 30px;
-    height: 48px;
-  }
-  
-  .carousel-control-prev-icon{
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23a18ecacc' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
-    background-color: transparent;
-    width: 30px;
-    height: 48px;
-  }
-  
+
   .tab-li{
     border-radius: 4px;
     color: black;
     padding: 2px 2px 2px 2px;
     background-color: #A659B0 !important;
   }
-  
-  #documents{
+
+  .text-checklist{
     color: #A659B0 !important;
     font-weight: bold;
+    font-size: 15px;
   }
-  

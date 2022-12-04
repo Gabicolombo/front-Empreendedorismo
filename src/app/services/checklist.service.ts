@@ -30,6 +30,20 @@ export class CheckListService{
     return this.http.get(url, this.httpOptions);
   }
 
+  getChecklistById(id:  string | null , token: string) : Observable<any> {
+    //Atualizando o header da requisicao para enviar o token
+    if(this.httpOptions.headers.has('Authorization'))
+      this.httpOptions.headers = this.httpOptions.headers.delete('Authorization');
+    if(!this.httpOptions.headers.has('Authorization'))
+      this.httpOptions.headers = this.httpOptions.headers.append('Authorization', token);
+
+    let url = ``;
+    if(id != null) url = `${this.url}/check?id_viagem=${id}`;
+    else url = `${this.url}/check?`;
+
+    return this.http.get(url, this.httpOptions);
+  }
+
   // para adc o checklist
   addChecklist(checklist: CheckList, userToken: string) : Observable<any> {
     //Atualizando o header da requisicao para enviar o token

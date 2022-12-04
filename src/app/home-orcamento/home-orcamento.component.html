@@ -1,13 +1,13 @@
 <div class="main-div">
-    <div class="main-div-orcamento shadow p-3 mb-5 bg-white rounded">
+    <div class="main-div-orcamento p-3 mb-5 bg-white rounded" style="background-color: #ebebeb !important;">
         <div class="titulo">
-            <button type="button" class="botao-voltar">
+            <button type="button" class="botao-voltar" (click)="goHome()">
                 <img src="assets\voltar.png" alt="voltar">
             </button>
             <h2 class="titulo-viagem">{{ budgetTravel[0].nome }}</h2>
         </div>
         <hr class="linha-titulo">
-        <div class="orcamento shadow p-3 mb-5 bg-white rounded">
+        <div class="orcamento p-3 mb-5 bg-white rounded">
             <h3>Gastos</h3>
             <div class="gastos">
                 <div class="gasto-desejado">
@@ -89,29 +89,14 @@
             </div>
         </div>
     </div>
-    <div class="checklist">
-        <mat-tab-group class="shadow p-3 mb-5 bg-white rounded">
-            <mat-tab label="Roteiros">
-              <div id="carouselExampleControls" class="carousel slide" data-interval="false">
-                <!-- <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" *ngFor="let travel of travels; let index = index" [attr.data-slide-to]="index"></li>
-                  </ol> -->
+    <div class="checklist" >
+        <mat-tab-group class="p-3 mb-5 bg-white rounded" style="background-color: #ebebeb !important; border: 2px solid rgba(215, 215, 215, 0.58)">
+            <mat-tab label="Roteiros" >
+              <div class="carousel slide">
                 <div class="carousel-inner p-3 d-flex text-center">
                   <div *ngFor="let travel of travels; let i = index" [ngClass]="{'active': i==0}" class="carousel-item">
                     <div class="d-flex flex-row justify-content-between align-items-center">
-                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
-                        style="border:none; background-color: transparent;">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <h2><b>{{ travel.nome }}</b></h2>
-                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
-                        style="border:none; background-color:transparent;">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
                     </div>
-                    <hr>
                     <div class="tab-content">
                       <div id="roteiro">
                         <div class="card-vacation shadow-sm d-flex flex-row justify-content-start mt-2 col-md-12"
@@ -122,53 +107,29 @@
                             </div>
                             <div class="d-flex flex-column align-items-start justify-content-center px-5">
                               <div class="mr-auto p-2"><b>{{ plan.local }}</b></div>
-                              <div class="mr-auto p-2">{{plan.dia}} Jan - {{plan.hora}}h</div>
+                              <div class="mr-auto p-2">{{plan.dia}}/{{plan.mes}} - {{plan.hora}}h</div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-    
+
                   </div>
                 </div>
               </div>
             </mat-tab>
             <mat-tab label="CheckList">
-              <div id="carouselExampleControls" class="carousel slide" data-interval="false">
-                <div class="carousel-inner p-3 d-flex text-center">
-                  <div *ngFor="let ch of checklist; let i = index" [ngClass]="{'active': i==0}" class="carousel-item active">
-                    <div class="d-flex flex-row justify-content-between align-items-center">
-                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
-                        style="border:none; background-color: transparent;">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <h2><b>{{ ch.viagem }}</b></h2>
-                      <button class="" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
-                        style="border:none; background-color:transparent;">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
-                    </div>
-                    <hr>
-                    <div class="tab-content">
-                      <mat-selection-list>
-                        <h4 id="documents">Documentos</h4>
-                        <div *ngFor="let c of ch.info">
-    
-                          <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option>
-                          <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option>
-    
-                        </div>
-                      </mat-selection-list>
-                    </div>
-    
-                  </div>
-                </div>
-              </div>
-    
+              <div class="tab-content" *ngFor="let ch of checklist" style=" margin: 20px"> 
+                <mat-selection-list> 
+                  <h4 class="text-checklist" id="categoria"><b>{{ch.categoria}}</b></h4> 
+                  <div *ngFor="let c of ch.info"> 
+                      <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status === true" [selected]="true">{{c.descricao}}</mat-list-option> 
+                      <mat-list-option #matOption (click)="isChecked(c.id, matOption.selected)" *ngIf="c.status !== true" [selected]="false">{{c.descricao}}</mat-list-option> 
+                  </div> 
+                </mat-selection-list> 
+              </div>           
             </mat-tab>
           </mat-tab-group>
     </div>
-    
+
 </div>

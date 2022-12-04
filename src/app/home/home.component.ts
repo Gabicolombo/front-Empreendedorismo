@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit{
           viagem: data._id,
           info: data.info,
         }));
-
+      
         this.checklist = checklist;
 
       });
@@ -68,12 +68,21 @@ export class HomeComponent implements OnInit{
     this.checklistService.updateChecklist(id, this.token, body);
   }
 
+  getBucket(id: any){
+    this.routes.navigate(['Orcamento', id]);
+
+  }
+
   deleteTravel(id: any){
     this.travelService.deleteTravels(id, this.token);
   }
 
   newTravel(){
-    this.routes.navigate(['/CadastroViagem/Page1']);
+    this.routes.navigate(['/CadastroViagem']);
+  }
+
+  viewTravel(id: string){
+    this.routes.navigate(['Viagem', id]);
   }
 
 }
